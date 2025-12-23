@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>His Imperial Majesty Dr. Gregory Oputa III - Ezeaboh (1483)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-blue: #0a192f;
+            --navy-light: #112240;
+            --navy-lighter: #233554;
+            --gold: #d4af37;
+            --gold-light: #f0d87e;
+            --white: #e6f1ff;
+            --gray: #8892b0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 70px;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+        
+        .logo-text {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .logo-text span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(to right, var(--navy-blue), var(--navy-light));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(10, 25, 47, 0) 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--gold);
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--gold-light);
+            font-weight: 400;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: var(--transition);
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+        }
+        
+        /* Kingdom Section */
+        .kingdom {
+            background-color: var(--navy-light);
+        }
+        
+        .kingdom-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .kingdom-text {
+            flex: 1;
+        }
+        
+        .kingdom-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .kingdom-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--navy-blue);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            height: 300px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .gallery-overlay p {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--navy-light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: var(--gray);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--gold);
+            border: 4px solid var(--navy-blue);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--navy-light);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--navy-lighter);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .contact-details h3 {
+            color: var(--gold-light);
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold-light);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--navy-lighter);
+            border: 1px solid var(--navy-lighter);
+            border-radius: 5px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #071225;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo-img {
+            height: 100px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background-color: var(--navy-lighter);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: var(--gold);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+        
+        /* Celebration Banner */
+        .celebration-banner {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-light) 100%);
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            padding: 40px 0;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .celebration-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .celebration-image {
+            flex: 0 0 auto;
+        }
+        
+        .celebration-image img {
+            max-height: 200px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .celebration-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .celebration-text h3 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .celebration-text p {
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+        }
+        
+        .celebration-text .date {
+            font-size: 1.2rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Royal Design Elements */
+        .royal-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            color: var(--navy-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .royal-divider {
+            height: 4px;
+            width: 100px;
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .royal-quote {
+            font-style: italic;
+            color: var(--gold-light);
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-size: 1.3rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, 
+            .about-content,
+            .kingdom-content,
+            .contact-content,
+            .celebration-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, 
+            .about-text,
+            .kingdom-text,
+            .celebration-text {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+            
+            .celebration-text {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--navy-light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .celebration-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .celebration-text p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .celebration-text h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="LOGO 2.png" alt="Royal Seal" class="logo-img">
+                <div class="logo-text">
+                    His Imperial Majesty<br>
+                    <span>Dr. Gregory Oputa III</span>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#kingdom">Kingdom</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#celebrations">Celebrations</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>His Imperial Majesty<br>Dr. Gregory Oputa III</h1>
+                <div class="hero-subtitle">of Aboh Kingdom</div>
+                <div class="royal-badge">20th Monarch</div>
+                <p>A distinguished leader, visionary monarch, and custodian of rich cultural heritage dedicated to the progress and unity of the Aboh Kingdom and its people.</p>
+                <div class="royal-quote">
+                    "Leadership is not about power, but about service to the people and preservation of our sacred heritage."
+                </div>
+                <a href="#about" class="btn btn-primary">Explore Legacy</a>
+                <a href="#gallery" class="btn">View Gallery</a>
+            </div>
+            <div class="hero-image">
+                <img src="1762508958676.jpg" alt="His Imperial Majesty Dr. Gregory Oputa III">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Royal Gallery</h2>
+                <p>A visual journey through the life and reign of His Imperial Majesty</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="1762509145327.jpg" alt="His Majesty in Royal Regalia">
+                    <div class="gallery-overlay">
+                        <h4>Royal Portrait</h4>
+                        <p>His Imperial Majesty in official royal attire</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="1762510907636.jpg" alt="His Majesty at Official Ceremony">
+                    <div class="gallery-overlay">
+                        <h4>Official Ceremony</h4>
+                        <p>Presiding over important kingdom affairs</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="1762360492464.jpg" alt="His Majesty with Traditional Leaders">
+                    <div class="gallery-overlay">
+                        <h4>Traditional Council</h4>
+                        <p>Meeting with traditional leaders and elders</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="1762360492469.jpg" alt="His Majesty at Community Event">
+                    <div class="gallery-overlay">
+                        <h4>Community Engagement</h4>
+                        <p>Engaging with the people of Aboh Kingdom</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="PNG - PIC 1.png" alt="His Majesty in Traditional Ceremony">
+                    <div class="gallery-overlay">
+                        <h4>Traditional Ceremony</h4>
+                        <p>Performing sacred traditional rites</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="PNG - PIC 2.png" alt="His Majesty in Official Portrait">
+                    <div class="gallery-overlay">
+                        <h4>Official Portrait</h4>
+                        <p>Formal portrait of His Imperial Majesty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebrations Banner -->
+    <section id="celebrations" class="celebration-banner">
+        <div class="container">
+            <div class="section-title">
+                <h2>Royal Celebrations</h2>
+                <p>Join us in celebrating momentous occasions in the reign of His Imperial Majesty</p>
+            </div>
+            
+            <div class="celebration-content">
+                <div class="celebration-image">
+                    <img src="PNG 1.png" alt="Birthday Celebration - Diamond Jubilee">
+                </div>
+                <div class="celebration-text">
+                    <h3>Birthday Celebration</h3>
+                    <p>Diamond Jubilee</p>
+                    <p class="date">Celebrating a lifetime of service and leadership</p>
+                    <a href="#contact" class="btn btn-primary">Send Congratulations</a>
+                </div>
+            </div>
+            
+            <div class="royal-divider"></div>
+            
+            <div class="celebration-content" style="margin-top: 40px;">
+                <div class="celebration-image">
+                    <img src="PNG 2.png" alt="One Year Coronation Anniversary">
+                </div>
+                <div class="celebration-text">
+                    <h3>One Year Coronation Anniversary</h3>
+                    <p>Celebrating the first year of His Imperial Majesty's reign</p>
+                    <p class="date">A year of progress, unity, and cultural preservation</p>
+                    <a href="#contact" class="btn btn-primary">Send Anniversary Wishes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About His Majesty</h2>
+                <p>Learn about the life, vision, and leadership of His Imperial Majesty Dr. Gregory Oputa III</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Royal Lineage & Leadership</h3>
+                    <p>His Imperial Majesty Dr. Gregory Oputa III of Aboh Kingdom, stands as the 20th monarch in an illustrious lineage dating back to 1483. Ascending to the throne with a profound sense of duty, His Majesty has dedicated his reign to fostering unity, preserving cultural heritage, and promoting sustainable development.</p>
+                    <p>With a background in both traditional governance and modern education, Dr. Gregory Oputa III brings a unique perspective to royal leadership, blending time-honored traditions with contemporary approaches to community development.</p>
+                    <p>His Majesty's commitment to education, healthcare, and economic empowerment has transformed the Aboh Kingdom, creating opportunities for its citizens while maintaining the rich cultural identity that defines the kingdom.</p>
+                    <a href="#achievements" class="btn">View Achievements</a>
+                </div>
+                <div class="about-image">
+                    <img src="1762509145327.jpg" alt="His Imperial Majesty Dr. Gregory Oputa III">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kingdom Section -->
+    <section id="kingdom" class="kingdom">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Aboh Kingdom</h2>
+                <p>A rich cultural heritage spanning centuries of tradition, leadership, and community</p>
+            </div>
+            
+            <div class="kingdom-content">
+                <div class="kingdom-image">
+                    <img src="1762360492464.jpg" alt="Aboh Kingdom Royal Court">
+                </div>
+                <div class="kingdom-text">
+                    <h3>Historical Significance</h3>
+                    <p>The Aboh Kingdom, established in 1480, represents one of the oldest and most respected traditional institutions in the region. For over five centuries, the kingdom has been a beacon of cultural preservation, economic development, and social cohesion.</p>
+                    <p>Under the reign of His Imperial Majesty Dr. Gregory Oputa III, the kingdom has experienced renewed growth and modernization while maintaining its essential cultural identity. The royal court continues to serve as the custodian of traditions, settling disputes, celebrating heritage, and guiding the community forward.</p>
+                    <p>Located in Ndokwa East, Delta State, Nigeria, the Aboh Kingdom stands as a testament to the resilience of traditional institutions in a modern world, balancing progress with preservation, innovation with tradition, and development with heritage.</p>
+                    <a href="#contact" class="btn btn-primary">Learn About Royal Visits</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Royal Achievements</h2>
+                <p>Significant milestones and contributions during the reign of His Imperial Majesty</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Coronation & Ascension</h3>
+                        <p>Formally ascended to the throne of Aboh Kingdom, continuing a royal lineage that dates back to 1480.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Education Initiative</h3>
+                        <p>Established the Royal Education Foundation, providing scholarships to over 500 students and building three new schools in the kingdom.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Healthcare Development</h3>
+                        <p>Oversaw the construction and modernization of the Aboh Central Hospital, improving healthcare access for over 50,000 residents.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Cultural Preservation</h3>
+                        <p>Launched the Annual Aboh Cultural Festival, attracting visitors from across the region and revitalizing traditional arts and crafts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Economic Empowerment</h3>
+                        <p>Initiated the Royal Agricultural Scheme, providing training and resources to local farmers, increasing agricultural output by 40%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Infrastructure Development</h3>
+                        <p>Spearheaded the construction of the Royal Highway, connecting remote villages to the kingdom's economic centers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact the Royal Court</h2>
+                <p>For official inquiries, royal invitations, or cultural exchanges</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Royal Palace Address</h3>
+                            <p>Aboh Kingdom Royal Palace<br>Ndokwa East, Delta State, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Official Email</h3>
+                            <p><br></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Royal Secretariat</h3>
+                            <p>+234 800 000 0000<br>+234 800 000 0001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>By appointment only</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose">Purpose of Contact</label>
+                            <select id="purpose" required>
+                                <option value="">Select Purpose</option>
+                                <option value="congratulations">Birthday Congratulations</option>
+                                <option value="anniversary">Coronation Anniversary Wishes</option>
+                                <option value="invitation">Royal Invitation</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="cultural">Cultural Exchange</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send to Royal Secretariat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="seal.png" alt="Royal Seal" class="footer-logo-img">
+                <div class="logo-text">
+                    His Imperial Majesty<br>
+                    <span>Dr. Gregory Oputa III</span>
+                </div>
+            </div>
+            
+            <p class="footer-text">The official portfolio of His Imperial Majesty Dr. Gregory Oputa III of Aboh Kingdom, Ndokwa East, Delta State. This website serves as a gateway to understanding the rich heritage, leadership, and vision of the Aboh Kingdom.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Aboh Kingdom Royal Court. All Rights Reserved. | Designed with honor and respect for tradition</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const purpose = document.getElementById('purpose').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this example, we'll just show an alert
+            const purposeText = {
+                'congratulations': 'Birthday Congratulations',
+                'anniversary': 'Coronation Anniversary Wishes',
+                'invitation': 'Royal Invitation',
+                'inquiry': 'General Inquiry',
+                'cultural': 'Cultural Exchange',
+                'other': 'Other Purpose'
+            }[purpose] || 'General Inquiry';
+            
+            alert(`Thank you, ${name}. Your ${purposeText} message has been sent to the Royal Secretariat. You will receive a response at ${email} within 5-7 business days.`);
+            
+            // Reset the form
+            contactForm.reset();
+        });
+        
+        // Add active class to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Gallery image click handler
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                const imgAlt = this.querySelector('img').alt;
+                
+                // Create modal for larger image view
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(10, 25, 47, 0.95)';
+                modal.style.display = 'flex';
+                modal.style.justifyContent = 'center';
+                modal.style.alignItems = 'center';
+                modal.style.zIndex = '2000';
+                
+                const modalImg = document.createElement('img');
+                modalImg.src = imgSrc;
+                modalImg.alt = imgAlt;
+                modalImg.style.maxWidth = '90%';
+                modalImg.style.maxHeight = '90%';
+                modalImg.style.borderRadius = '10px';
+                modalImg.style.border = '3px solid var(--gold)';
+                modalImg.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.5)';
+                
+                modal.appendChild(modalImg);
+                document.body.appendChild(modal);
+                
+                // Close modal on click
+                modal.addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                });
+            });
+        });
+        
+        // Add royal touch to page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add subtle animation to royal badge
+            const royalBadge = document.querySelector('.royal-badge');
+            if(royalBadge) {
+                setTimeout(() => {
+                    royalBadge.style.transform = 'scale(1.1)';
+                    royalBadge.style.transition = 'transform 0.5s ease';
+                }, 1000);
+                
+                setTimeout(() => {
+                    royalBadge.style.transform = 'scale(1)';
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
