@@ -24,15 +24,22 @@
             box-sizing: border-box;
         }
 
+        /* Forced desktop width for mobile viewing */
+        body, html {
+            min-width: 1200px;
+            overflow-x: auto;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: var(--font-sans);
             color: var(--dark-text);
             line-height: 1.6;
             background-color: white;
             scroll-behavior: smooth;
-            /* Force consistent desktop width */
-            min-width: 1200px;
-            overflow-x: auto;
         }
 
         h1, h2, h3 {
@@ -130,7 +137,7 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Menu toggle hidden as we are forcing desktop layout */
+        /* Hidden as we are forcing desktop mode */
         .menu-toggle {
             display: none;
         }
@@ -138,7 +145,7 @@
         /* --- 3. HERO SECTION --- */
         #home {
             background-color: #ef0019;
-            height: 90vh; 
+            height: 90vh;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -163,15 +170,28 @@
         }
 
         .hero-text-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: 4.5rem;
             color: #fff;
             line-height: 1.1;
             margin: 15px 0;
         }
 
-        .hero-text-content p {
-            color: #fff;
-            max-width: 500px;
+        .hero-image-wrapper {
+            position: absolute;
+            right: -5%;
+            bottom: 0;
+            height: 100%;
+            width: 60%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .hero-main-img {
+            height: 95%;
+            width: auto;
+            object-fit: contain;
+            object-position: bottom right;
         }
 
         .hero-accent {
@@ -182,25 +202,7 @@
             display: block;
             margin-bottom: 10px;
         }
-
-        .hero-image-wrapper {
-            position: absolute;
-            right: -5%; 
-            bottom: 0;
-            height: 100%;
-            width: 60%; 
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-        }
-
-        .hero-main-img {
-            height: 95%; 
-            width: auto;
-            object-fit: contain;
-            object-position: bottom right;
-        }
-
+        
         .hero-cta {
             background-color: var(--secondary-color);
             color: #333;
@@ -216,7 +218,8 @@
         #biography {
             background-color: var(--light-bg);
             text-align: left;
-            padding: 40px 0;
+            margin-top: 0;
+            padding: 80px 0;
         }
 
         .bio-grid {
@@ -232,7 +235,7 @@
         }
 
         .bio-image-wrapper {
-            flex: 0 0 350px;
+            width: 350px;
             height: 450px;
             overflow: hidden;
             border: 3px solid var(--secondary-color);
@@ -252,13 +255,7 @@
             background: #f9f9f9;
         }
 
-        .bio-content p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #444;
-        }
-
+        /* --- GRADIENT BLEND --- */
         .royal-blend-divider {
             height: 20px; 
             background: linear-gradient(to bottom, #ef0019 0%, #ffffff 100%);
@@ -279,7 +276,6 @@
         .media-video-area-blended {
             flex: 1.2;
             position: relative;
-            z-index: 1;
         }
 
         .media-video-area-blended video {
@@ -290,29 +286,22 @@
 
         .media-content-blended {
             flex: 1;
-            z-index: 4;
+            background: #000;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 50px;
-            background: #000;
-        }
-
-        .media-panel-text {
-            max-width: 600px;
-            text-align: center;
+            padding: 50px;
         }
 
         .btn-watch-blended {
             background-color: #ef0019;
             color: white;
-            border: none;
             padding: 15px 35px;
-            font-weight: 700;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
         }
 
         /* --- 6. EVENTS --- */
@@ -320,7 +309,6 @@
             display: flex;
             justify-content: center;
             gap: 40px;
-            flex-wrap: wrap;
         }
 
         .flip-container {
@@ -406,7 +394,7 @@
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
             gap: 40px;
-            padding-bottom: 60px;
+            padding: 0 50px 60px;
         }
 
         .footer-seal { width: 120px; margin-bottom: 20px; }
@@ -430,8 +418,6 @@
             transition: 0.3s;
         }
         .lightbox.active { visibility: visible; opacity: 1; }
-
-        /* ALL MEDIA QUERIES REMOVED TO PREVENT MOBILE OVERRIDES */
 
     </style>
 </head>
@@ -500,7 +486,7 @@
                     <img src="PNG 3.png" alt="Title text" style="max-width: 100%; height: auto; margin-bottom: 20px;">
                     <h2>A Life of Calling, Kingship, and Purposeful Leadership</h2>
                     <div class="bio-content">
-                        <p><strong>His Imperial Majesty, Dr. Gregory Oputa III</strong>, is the Eze Aboh of the ancient Aboh Kingdom, a throne established in 1483...</p>
+                        <p><strong>His Imperial Majesty, Dr. Gregory Oputa III</strong>, is the Eze Aboh of the ancient Aboh Kingdom...</p>
                         <p>Guided by faith, wisdom, and foresight, His Majesty stands as a bridge between generations—honouring the past while intentionally preparing the future.</p>
                     </div>
                 </div>
@@ -514,12 +500,10 @@
         </div>
         <div class="media-content-blended">
             <div class="media-panel-text">
-                <p style="color:var(--secondary-color); letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;">Featured Message</p>
-                <h2 style="color:var(--secondary-color); font-size:3rem;">The Crown and the Calling: A Legacy Reimagined</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #ddd; margin-top: 15px;">
-                    Do you struggle to like yourself? Today, His Majesty shows how God rolls away shame, renews your mind, and helps you love yourself in Christ.
-                </p>
-                <div class="panel-actions" style="margin-top:30px;">
+                <p style="color:var(--secondary-color); text-transform:uppercase; letter-spacing:2px; margin-bottom:20px;">Featured Message</p>
+                <h2 style="color:var(--secondary-color); font-size:3rem;">The Crown and the Calling</h2>
+                <p style="margin-top:15px; color:#ddd;">Do you struggle to like yourself? Today, His Majesty shows how God rolls away shame...</p>
+                <div style="margin-top:30px;">
                     <button class="btn-watch-blended"><i class="fas fa-play"></i> Watch Now</button>
                 </div>
             </div>
@@ -535,7 +519,7 @@
                         <div class="front" style="background-image: url('PNG - PIC 2.png'); background-size: cover;"></div>
                         <div class="back">
                             <h3>Sixty Years of Purpose</h3>
-                            <p>The 60th birthday of His Imperial Majesty marks a profound milestone.</p>
+                            <p>Celebrating a life of faith and leadership.</p>
                         </div>
                     </div>
                 </div>
@@ -544,7 +528,7 @@
                         <div class="front" style="background-image: url('1762508958676.jpg'); background-size: cover;"></div>
                         <div class="back">
                             <h3>Years of Consecrated Reign</h3>
-                            <p>Each coronation anniversary commemorates a reign defined by values and responsibility.</p>
+                            <p>A reign defined by values and responsibility.</p>
                         </div>
                     </div>
                 </div>
@@ -554,23 +538,14 @@
 
     <section class="featured-resource-section" id="resources">
         <div class="container">
-            <div class="featured-header" style="text-align:left; margin-bottom:50px;">
-                <h2 style="font-size:2.5rem;">Featured Book</h2>
-            </div>
+            <h2>Featured Book</h2>
             <div class="featured-book-layout">
                 <div class="featured-book-image">
-                    <img src="Gemini_Generated_Image_sdk54psdk54psdk5.png" alt="SHIFTS Book Cover">
+                    <img src="Gemini_Generated_Image_sdk54psdk54psdk5.png" alt="Book Cover">
                 </div>
                 <div class="featured-book-details">
                     <h3>THE CROWN AND THE CALLING</h3>
-                    <p style="font-size:1.05rem; color:#444; margin-bottom:25px;">
-                        In this captivating biography, His Imperial Majesty Dr. Greg Nnamdi Oputa III pulls back the curtain on the life of a modern king...
-                    </p>
-                    <ol style="margin-left:20px;">
-                        <li><strong>The Intersection of Worlds</strong></li>
-                        <li><strong>A "Soulful" Evolution</strong></li>
-                        <li><strong>Leadership with Accountability</strong></li>
-                    </ol>
+                    <p>Witness the rare evolution of a global philanthropist into a traditional monarch.</p>
                 </div>
             </div>
         </div>
@@ -594,7 +569,7 @@
     <section id="contact">
         <div class="container">
             <h2>Contact The Royal Palace</h2>
-            <div style="text-align:center; margin-top:30px;">
+            <div style="margin-top:30px;">
                 <p><strong>The Royal Palace of Aboh Kingdom</strong><br>Aboh, Delta State, Nigeria</p>
                 <p><strong>Email:</strong> drgregoputa111@gmail.com</p>
                 <p><strong>Phone:</strong> +234 704 334 4423</p>
@@ -603,23 +578,18 @@
     </section>
 
     <footer class="site-footer">
-        <div class="container footer-content-wrapper">
+        <div class="footer-content-wrapper">
             <div class="footer-col">
-                <img src="seal.png" alt="Royal Seal" class="footer-seal">
-                <p>Preserving the sacred heritage of the ancient Aboh Kingdom.</p>
+                <img src="seal.png" alt="Seal" class="footer-seal">
+                <p>Preserving heritage with purpose.</p>
             </div>
             <div class="footer-col">
-                <h4>Palace Menu</h4>
+                <h4>Menu</h4>
                 <p><a href="#home" style="color:#ccc; text-decoration:none;">Home</a></p>
                 <p><a href="#biography" style="color:#ccc; text-decoration:none;">Biography</a></p>
             </div>
             <div class="footer-col">
-                <h4>Information</h4>
-                <p><a href="#events" style="color:#ccc; text-decoration:none;">Events</a></p>
-                <p><a href="#contact" style="color:#ccc; text-decoration:none;">Contact</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Social Media</h4>
+                <h4>Official Social Media</h4>
                 <div class="footer-socials">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -627,7 +597,7 @@
                 </div>
             </div>
         </div>
-        <div style="background:#111; padding:20px 0; text-align:center;">
+        <div style="background:#111; padding:20px; text-align:center;">
             <p style="color:#666; font-size:0.75rem;">&copy; <span id="footerYear"></span> His Imperial Majesty, Dr. Gregory Oputa III.</p>
         </div>
     </footer>
