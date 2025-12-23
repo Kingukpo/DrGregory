@@ -913,7 +913,25 @@
             .logo-box img { height: 120px; top: -10px; left: 0; right: auto; }
             .hero-layout { grid-template-columns: 1fr; display: flex; flex-direction: column; }
             .hero-text-box { text-align: center; align-items: center; padding: 60px 20px; order: 1; }
-            
+
+            .nav-open .hamburger:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+                background-color: var(--light-bg);
+            }
+
+            .nav-open .hamburger:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-open .hamburger:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+                background-color: var(--light-bg);
+            }
+
+            .hamburger {
+                transition: all 0.3s ease ease-in-out;
+            }
+
             #biography { 
                 margin-top: 0; 
                 padding: 60px 0; 
