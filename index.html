@@ -897,22 +897,23 @@
                 position: fixed; /* Keeps button visible even when menu slides */
                 top: 25px;
                 right: 25px;
-                z-index: 3000 !important; /* Higher than the nav panel */
+                z-index: 3000 !important; /* RECTIFIED: Higher than the nav panel */
                 background: transparent;
                 border: none;
                 width: 40px;
                 height: 40px;
+                cursor: pointer; /* RECTIFIED: Explicit pointer */
             }
             .nav-links {
                 position: fixed;
-                top: 0; right: 0; width: 70%; height: 89.5%;
+                top: 0; right: 0; width: 70%; height: 100vh; /* RECTIFIED: Full viewport height */
                 background-color: #ef0019;
                 flex-direction: column;
                 padding-top: 100px;
                 transform: translateX(100%);
                 z-index: 2000; 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
-                transition: 0.4s;
+                transition: transform 0.4s ease; /* RECTIFIED: Explicit property */
             }
             .nav-open .nav-links { transform: translateX(0); }
             .nav-links a { 
@@ -1056,8 +1057,7 @@
 </p>
             <div class="hero-btns">
                 <a href="#biography" class="hero-cta">Read Full Biography &rarr;</a>
-                <!-- <a href="#resources" class="hero-cta1">featured-book-details &rarr;</a> -->
-            </div>
+                </div>
         </div>
     </div>
     </section>
@@ -1117,8 +1117,7 @@
                 </div>
                 <div class="panel-actions">
                     <button class="btn-watch-blended"><i class="fas fa-play"></i> Watch Now</button>
-                    <!-- <a href="#" class="btn-listen-audio"><i class="fas fa-headphones"></i> Listen to Audio</a> -->
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -1161,7 +1160,6 @@
             </div>
 
             <div class="featured-book-details">
-                <!-- <p class="edition-label">1st Edition</p> -->
                 <h3>THE CROWN AND THE CALLING </h3>
                 
                 <p class="book-description">
@@ -1250,7 +1248,6 @@ At its heart, the book explores a powerful paradox: that true power is found not
         </div>
         <div class="footer-col">
             <h4>Official Social Media</h4>
-            <!-- <p style="font-size: 0.8rem; margin-bottom: 15px; color: var(--secondary-color);">@ObiOputa111ofAboh</p> -->
             <div class="footer-socials">
                 <a href="https://facebook.com/ObiOputa111ofAboh" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://instagram.com/ObiOputa111ofAboh" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1272,11 +1269,22 @@ At its heart, the book explores a powerful paradox: that true power is found not
         document.addEventListener('DOMContentLoaded', function() {
             // 1. MOBILE MENU TOGGLE
             const menuToggle = document.getElementById('menuToggle');
+            const nav = document.querySelector('.nav-links'); // RECTIFIED: Reference for closing logic
+            const body = document.body;
+
             if (menuToggle) {
-                menuToggle.addEventListener('click', () => {
-                    document.body.classList.toggle('nav-open');
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation(); // RECTIFIED: Prevent bubbing
+                    body.classList.toggle('nav-open');
                 });
             }
+
+            // RECTIFIED: Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('nav-open');
+                });
+            });
 
             // 2. LIGHTBOX FOR GALLERY
             const lightbox = document.getElementById('lightbox');
