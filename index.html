@@ -889,31 +889,59 @@
                 justify-content: space-between;
                 padding: 0 5px;
             }
+
+            /* RECTIFIED X BUTTON STYLES */
             .menu-toggle {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                position: fixed; /* Keeps button visible even when menu slides */
+                position: fixed; 
                 top: 25px;
                 right: 25px;
-                z-index: 3000 !important; /* RECTIFIED: Higher than the nav panel */
+                z-index: 3000 !important; /* Forces button above the nav menu */
                 background: transparent;
                 border: none;
-                width: 40px;
-                height: 40px;
-                cursor: pointer; /* RECTIFIED: Explicit pointer */
+                width: 45px;
+                height: 45px;
             }
+
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: white; 
+                margin: 3.5px 0; /* Adjusted for better X symmetry */
+                transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+                transform-origin: center; 
+            }
+
+            /* PERFECT X ANIMATION */
+            .nav-open .hamburger:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
+            .nav-open .hamburger:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            .nav-open .hamburger:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
             .nav-links {
                 position: fixed;
-                top: 0; right: 0; width: 70%; height: 100vh; /* RECTIFIED: Full viewport height */
+                top: 0; right: 0; width: 70%; height: 100vh;
                 background-color: #ef0019;
                 flex-direction: column;
                 padding-top: 100px;
                 transform: translateX(100%);
                 z-index: 2000; 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
-                transition: transform 0.4s ease; /* RECTIFIED: Explicit property */
+                transition: transform 0.4s ease-in-out;
             }
             .nav-open .nav-links { transform: translateX(0); }
             .nav-links a { 
@@ -927,34 +955,6 @@
             .logo-box img { height: 120px; top: -10px; left: 0; right: auto; }
             .hero-layout { grid-template-columns: 1fr; display: flex; flex-direction: column; }
             .hero-text-box { text-align: center; align-items: center; padding: 60px 20px; order: 1; }
-
-            /* Top bar rotates and stays centered */
-            .nav-open .hamburger:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-                background-color: var(--secondary-color) !important;
-            }
-
-            /* Middle bar vanishes */
-            .nav-open .hamburger:nth-child(2) {
-                opacity: 0;
-            }
-
-            /* Bottom bar rotates and stays centered */
-            .nav-open .hamburger:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-                background-color: var(--secondary-color) !important;
-            }
-
-            .hamburger {
-                display: block;
-                width: 30px;
-                height: 3px;
-                background-color: white; /* Changed to white to show against red */
-                margin: 6px 0;
-                transition: all 0.3s ease-in-out;
-                /* KEY FIX: Rotation happens from the middle */
-                transform-origin: center; 
-            }
 
             #biography { 
                 margin-top: 0; 
@@ -1269,22 +1269,11 @@ At its heart, the book explores a powerful paradox: that true power is found not
         document.addEventListener('DOMContentLoaded', function() {
             // 1. MOBILE MENU TOGGLE
             const menuToggle = document.getElementById('menuToggle');
-            const nav = document.querySelector('.nav-links'); // RECTIFIED: Reference for closing logic
-            const body = document.body;
-
             if (menuToggle) {
-                menuToggle.addEventListener('click', (e) => {
-                    e.stopPropagation(); // RECTIFIED: Prevent bubbing
-                    body.classList.toggle('nav-open');
+                menuToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('nav-open');
                 });
             }
-
-            // RECTIFIED: Close menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    body.classList.remove('nav-open');
-                });
-            });
 
             // 2. LIGHTBOX FOR GALLERY
             const lightbox = document.getElementById('lightbox');
