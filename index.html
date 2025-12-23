@@ -889,7 +889,7 @@
                 justify-content: space-between;
                 padding: 0 5px;
             }
-            .menu-toggle { display: block; position: fixed; top: 25px; right: 25px; padding: 10px; z-index: 3000 !important; }
+            .menu-toggle { display: flex; position: fixed; top: 25px; right: 25px; padding: 0; z-index: 3000 !important; justify-content: center; flex-direction: column; }
             .nav-links {
                 position: fixed;
                 top: 0; right: 0; width: 70%; height: 89.5%;
@@ -916,20 +916,26 @@
 
             .nav-open .hamburger:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
-                background-color: var(--light-bg);
+                background-color: var(--light-bg) !important;
             }
 
             .nav-open .hamburger:nth-child(2) {
-                opacity: 0;
+                opacity: 0; transform: scale(0);
             }
 
             .nav-open .hamburger:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+                transform: translate(-9px) translate(6px, -6px);
                 background-color: var(--light-bg);
             }
 
             .hamburger {
                 transition: all 0.3s ease ease-in-out; background-color: var(--light-bg) !important;
+                display: block;
+                width: 30px;
+                height: 3px;
+                margin: 6px 0;
+                transition: all 0.3s ease;
+                transform-origin: center;
             }
 
             #biography { 
