@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>His Imperial Majesty Dr. Greg Oputa III</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
@@ -24,22 +25,21 @@
             box-sizing: border-box;
         }
 
-        /* Forced desktop width for mobile viewing */
-        body, html {
-            min-width: 1200px;
-            overflow-x: auto;
-            width: 100%;
-            position: relative;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: var(--font-sans);
             color: var(--dark-text);
             line-height: 1.6;
             background-color: white;
             scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         h1, h2, h3 {
@@ -137,15 +137,37 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Hidden as we are forcing desktop mode */
         .menu-toggle {
             display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
         }
 
         /* --- 3. HERO SECTION --- */
         #home {
+            padding: 0;
+            min-height: 80vh;
             background-color: #ef0019;
-            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        #home {
+            background-color: #ef0019;
+            height: 90vh; /* Keeps height consistent */
             position: relative;
             overflow: hidden;
             display: flex;
@@ -163,14 +185,13 @@
         }
 
         .hero-text-content {
-            flex: 0 0 50%;
+            flex: 0 0 50%; /* Text takes up half the width */
             z-index: 5;
             position: relative;
-            text-align: left;
         }
 
         .hero-text-content h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             color: #fff;
             line-height: 1.1;
             margin: 15px 0;
@@ -178,20 +199,84 @@
 
         .hero-image-wrapper {
             position: absolute;
-            right: -5%;
+            right: -5%; /* Shifts image slightly off-screen like the video */
             bottom: 0;
             height: 100%;
-            width: 60%;
+            width: 60%; /* Overlaps with text area */
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
         }
 
         .hero-main-img {
-            height: 95%;
+            height: 95%; /* Adjust based on your photo's framing */
             width: auto;
             object-fit: contain;
             object-position: bottom right;
+            transition: all 0.5s ease;
+        }
+
+        /* RESPONSIVE SCALING (Like the video) */
+        @media (max-width: 1100px) {
+            .hero-text-content {
+                flex: 0 0 60%;
+            }
+            .hero-image-wrapper {
+                width: 50%;
+                right: -10%;
+            }
+        }
+
+        @media (max-width: 850px) {
+            #home {
+                height: auto;
+                padding: 100px 0 0 0; /* Space for header */
+                flex-direction: column;
+            }
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text-content {
+                flex: 0 0 100%;
+                padding-bottom: 40px;
+            }
+            .hero-image-wrapper {
+                position: relative;
+                width: 100%;
+                right: 0;
+                height: 500px;
+            }
+            .hero-main-img {
+                height: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            align-items: center;
+        }
+
+        .hero-text-box {
+            padding: 40px 80px;
+            text-align: left;
+            z-index: 3;
+        }
+
+        .hero-text-box h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem); 
+            margin-bottom: 10px;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .hero-text-box p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            max-width: 500px;
         }
 
         .hero-accent {
@@ -214,28 +299,43 @@
             margin-top: 20px;
         }
 
+        .hero-cta1 {
+            background-color: var(--secondary-color);
+            color: #333;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .hero-image-box {
+            width: 100%;
+            height: 80vh;
+            background-image: url('PNG - PIC 1.png');
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: contain;
+        }
+
         /* --- 4. BIOGRAPHY SECTION --- */
         #biography {
             background-color: var(--light-bg);
             text-align: left;
-            margin-top: 0;
-            padding: 80px 0;
+            margin-top: -140px; 
+            padding-top: 180px;
         }
-
-        .bio-grid {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .bio-sidebar {
-            position: sticky;
-            top: 120px;
+        
+        #biography .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
         }
 
         .bio-image-wrapper {
-            width: 350px;
+            flex: 0 0 350px;
             height: 450px;
             overflow: hidden;
             border: 3px solid var(--secondary-color);
@@ -248,6 +348,36 @@
             object-fit: cover;
         }
 
+        .bio-text {
+            flex-grow: 1;
+        }
+
+        .bio-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .bio-text p {
+            margin-bottom: 15px;
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .bio-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+        .bio-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
         .official-titles {
             margin-top: 30px;
             padding: 20px;
@@ -255,16 +385,43 @@
             background: #f9f9f9;
         }
 
-        /* --- GRADIENT BLEND --- */
-        .royal-blend-divider {
-            height: 20px; 
-            background: linear-gradient(to bottom, #ef0019 0%, #ffffff 100%);
-            width: 100%;
+        .official-titles h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        /* --- 5. MEDIA SECTION --- */
+        .official-titles ul {
+            list-style: none;
+        }
+
+        .official-titles li {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* --- THE GRADIENT BLEND --- */
+        .royal-blend-divider {
+            /* Height controls how "long" the color transition lasts */
+            height: 20px; 
+            /* Blends from your specific red to pure white */
+            background: linear-gradient(to bottom, #ef0019 0%, #ffffff 100%);
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        /* --- IMPORTANT: REMOVE OVERLAP --- */
+        #biography {
+            margin-top: 0 !important; /* Disables the -140px overlap from your original code */
+            padding-top: 40px !important; /* Gives the text a little breathing room after the blend */
+        }
+
+        /* --- 5. MEDIA SECTION (UPDATED FOR CINEMATIC GRADIENT) --- */
         .media-split-section {
             position: relative;
+            padding: 0; /* Thick border block removed */
             background-color: #000;
             min-height: 650px;
             display: flex;
@@ -276,32 +433,163 @@
         .media-video-area-blended {
             flex: 1.2;
             position: relative;
+            z-index: 1;
+            background: #000;
+        }
+
+        /* This creates the soft edge blending on all sides */
+        .media-video-area-blended::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Fades video into black at the edges */
+            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Specific blend into the text panel on the right */
+        .media-video-area-blended::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #000);
+            z-index: 3;
+            pointer-events: none;
         }
 
         .media-video-area-blended video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .media-content-blended {
             flex: 1;
-            background: #000;
+            position: relative;
+            z-index: 4;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 50px;
+            padding: 80px 50px;
+            background: #000;
+        }
+
+        .media-panel-text {
+            max-width: 600px;
+            text-align: center; /* Centers the actual lines of text */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers elements like buttons/grids inside the div */
+        }
+
+        .media-panel-text h2 {
+            color: var(--secondary-color);
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .panel-subtitle-blended {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .panel-offers-grid-blended {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        /* Ensure the offers grid and actions are also centered */
+        .panel-offers-grid-blended, 
+        .panel-actions {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .mini-offer-card-blended {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .mini-offer-card-blended h5 {
+            color: #fff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .mini-price-blended {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .mini-add-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
         }
 
         .btn-watch-blended {
             background-color: #ef0019;
             color: white;
+            border: none;
             padding: 15px 35px;
+            font-weight: 700;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+        }
+
+        .btn-listen-audio {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 700;
-            border: none;
+            font-size: 1rem;
+            justify-content: center;
+        }
+
+        /* Mobile adjustment to keep it centered on smaller screens */
+        @media (max-width: 992px) {
+            .media-content-blended {
+                padding: 40px 20px;
+                justify-content: center;
+            }
+            
+            .media-panel-text {
+                text-align: center;
+                margin: 0 auto;
+            }
         }
 
         /* --- 6. EVENTS --- */
@@ -309,6 +597,7 @@
             display: flex;
             justify-content: center;
             gap: 40px;
+            flex-wrap: wrap;
         }
 
         .flip-container {
@@ -335,35 +624,130 @@
             height: 100%;
             backface-visibility: hidden;
             border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .back {
             background-color: black;
             transform: rotateY(180deg);
             padding: 30px;
-            color: white;
-            display: flex;
             flex-direction: column;
-            justify-content: center;
+            color: white;
+            text-align: center;
         }
 
-        /* --- 7. RESOURCES --- */
+        .back h3 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.3rem; }
+        .back p { font-size: 0.9rem; line-height: 1.4; }
+
+        /* --- FEATURED RESOURCES (SHIFTS STYLE) --- */
+        .featured-resource-section {
+            padding: 100px 0;
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .featured-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .featured-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .btn-view-all {
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #333;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
         .featured-book-layout {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 80px;
             align-items: center;
-            text-align: left;
         }
 
         .featured-book-image img {
             width: 100%;
             max-width: 400px;
+            height: auto;
+            /* This creates the realistic "floating" shadow from the image */
             box-shadow: 25px 25px 50px rgba(0,0,0,0.2);
             border-radius: 4px;
         }
 
-        /* --- 8. GALLERY --- */
+        .featured-book-details h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 10px 0 20px;
+            line-height: 1.2;
+        }
+
+        .edition-label {
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .book-description {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .framework-list {
+            margin: 20px 0 35px 20px;
+        }
+
+        .framework-list li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .btn-get-book {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-get-book:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive Scaling */
+        @media (max-width: 992px) {
+            .featured-book-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .featured-book-image img {
+                margin: 0 auto 40px;
+            }
+            .framework-list {
+                text-align: left;
+            }
+        }
+
+        /* --- 7. GALLERY & LIGHTBOX --- */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -374,6 +758,7 @@
             height: 400px;
             overflow: hidden;
             border-radius: 8px;
+            cursor: pointer;
         }
         
         .gallery-item img {
@@ -381,34 +766,7 @@
             height: 100%;
             object-fit: cover;
         }
-
-        /* --- 9. FOOTER --- */
-        .site-footer {
-            background: #000;
-            color: #ffffff;
-            padding: 80px 0 0;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .footer-content-wrapper {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-            gap: 40px;
-            padding: 0 50px 60px;
-        }
-
-        .footer-seal { width: 120px; margin-bottom: 20px; }
-
-        .footer-socials { display: flex; gap: 15px; }
-
-        .footer-socials a {
-            width: 38px; height: 38px;
-            background: #222;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; color: #fff;
-        }
-
-        /* --- LIGHTBOX --- */
+        
         .lightbox {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -417,8 +775,243 @@
             z-index: 2000; visibility: hidden; opacity: 0;
             transition: 0.3s;
         }
+        
         .lightbox.active { visibility: visible; opacity: 1; }
 
+        /* --- 8. CONTACT --- */
+        .contact-layout { display: flex; gap: 30px; text-align: left; flex-wrap: wrap; width: 100% !important; max-width: 100vw !important; padding-left: 15px !important; padding-right: 15px !important;
+        margin: 0 auto !important; overflow: hidden !important;}
+        .contact-form-container { flex: 1 1 100%; max-width: 100%; padding: 20px; border-radius: 8px; background: white; border: 1px solid #eee; }
+        .contact-info-panel { flex: 1 1 300px; color: var(--dark-text); justify-content: center; text-align: center; }
+        .contact-info-panel h3 { color: var(--primary-color); margin-bottom: 15px; }
+        .contact-info-panel p { margin-bottom: 10px; font-size: 0.95rem; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--tertiary-color); }
+        .submit-btn { background-color: var(--primary-color); color: white; padding: 12px 25px; border: none; cursor: pointer; }
+
+        /* --- 9. FOOTER --- */
+        .site-footer {
+            background: #000;
+            color: #ffffff;
+            padding: 80px 0 0;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-content-wrapper {
+            display: flex;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 60px;
+            flex-wrap: wrap;
+            padding: 0 15px 60px 15px;
+        }
+
+        .footer-seal {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-col {
+            flex: 1 1 250px;
+            max-width: 100%;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .footer-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-nav-list a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav-list a:hover { color: #fff; }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            width: 38px;
+            height: 38px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            background: #111;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.75rem;
+        }
+
+        .royal-motto {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* --- 10. MOBILE RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .nav-content { 
+                flex-direction: row; 
+                justify-content: space-between;
+                padding: 0 5px;
+            }
+
+            /* RECTIFIED X BUTTON STYLES */
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed; 
+                top: 25px;
+                right: 25px;
+                z-index: 3000 !important; /* Forces button above the nav menu */
+                background: transparent;
+                border: none;
+                width: 45px;
+                height: 45px;
+            }
+
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: white; 
+                margin: 3.5px 0; /* Adjusted for better X symmetry */
+                transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+                transform-origin: center; 
+            }
+
+            /* PERFECT X ANIMATION */
+            .nav-open .hamburger:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
+            .nav-open .hamburger:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            .nav-open .hamburger:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: 0; width: 70%; height: 100vh;
+                background-color: #ef0019;
+                flex-direction: column;
+                padding-top: 100px;
+                transform: translateX(100%);
+                z-index: 2000; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
+                transition: transform 0.4s ease-in-out;
+            }
+            .nav-open .nav-links { transform: translateX(0); }
+            .nav-links a { 
+                height: auto;
+                padding: 15px 30px;
+                font-size: 1.1rem;
+                width: 100%;
+                border-right: none !important;
+                border-bottom: 2px solid var(--secondary-color);
+            }
+            .logo-box img { height: 120px; top: -10px; left: 0; right: auto; }
+            .hero-layout { grid-template-columns: 1fr; display: flex; flex-direction: column; }
+            .hero-text-box { text-align: center; align-items: center; padding: 60px 20px; order: 1; }
+
+            #biography { 
+                margin-top: 0; 
+                padding: 60px 0; 
+            }
+            #biography .container { 
+                flex-direction: column; 
+            }
+            .bio-grid { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
+            }
+            .bio-sidebar { 
+                position: static; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+            }
+            .bio-image-wrapper { 
+                width: 100%; 
+                max-width: 350px; 
+                height: 450px; 
+            }
+            .official-titles { 
+                width: 100%; 
+                text-align: left; 
+            }
+            .bio-text { 
+                text-align: left; 
+            }
+
+            /* Forces all containers to stay within the veiw point */
+            .container, .footer-content-wrapper, .contact-layout {
+                width: 100% !important;
+                max-width: 100vw;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .footer-branding {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* MOBILE MEDIA BLEND */
+            .media-split-section { flex-direction: column; min-height: auto; }
+            .media-video-area-blended::after {
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%);
+            }
+            .media-content-blended { padding: 40px 20px; }
+            .media-panel-text { text-align: center; }
+            .panel-offers-grid-blended { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
@@ -441,28 +1034,35 @@
                     <a href="#gallery">GALLERY</a>
                     <a href="#contact">CONTACT</a>
                 </nav>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
             </div>
         </div>
     </header>
 
     <section id="home">
-        <div class="hero-container">
-            <div class="hero-image-wrapper">
-                <img src="PNG - PIC 1.png" alt="His Imperial Majesty" class="hero-main-img">
-            </div>
-            
-            <div class="hero-text-content">
-                <span class="hero-accent">His Imperial Majesty</span>
-                <h1>Dr. Gregory Oputa III</h1>
-                <p>Eze Aboh (Since 1483) | Paramount Ruler of Aboh Kingdom. A global leader with a clear and compelling vision to reset the Aboh Kingdom...</p>
-                <div class="hero-btns">
-                    <a href="#biography" class="hero-cta">Read Full Biography &rarr;</a>
-                </div>
-            </div>
+    <div class="hero-container">
+        <div class="hero-image-wrapper">
+            <img src="PNG - PIC 1.png" alt="His Imperial Majesty" class="hero-main-img">
         </div>
+        
+        <div class="hero-text-content">
+            <span class="hero-accent">His Imperial Majesty</span>
+            <h1>Dr. Gregory Oputa III</h1>
+            <p>Eze Aboh (Since 1483) | Paramount Ruler of Aboh Kingdom. A global leader with a clear and compelling vision to reset the Aboh Kingdom, His Imperial Majesty, Dr. Gregory Oputa III, is a strategic thinker and custodian of a rich cultural heritage. His reign is anchored on principled leadership, community development, and sustainable progress—honouring ancient tradition while courageously shaping a purposeful future.
+</p>
+            <div class="hero-btns">
+                <a href="#biography" class="hero-cta">Read Full Biography &rarr;</a>
+                </div>
+        </div>
+    </div>
     </section>
 
-    <div class="royal-blend-divider"></div>
+   <div class="royal-blend-divider"></div>
 
     <section id="biography">
         <div class="container">
@@ -478,6 +1078,7 @@
                             <li>Dr. Gregory Oputa III</li>
                             <li>Eze Aboh (Since 1483)</li>
                             <li>Paramount Ruler of Aboh Kingdom</li>
+                            <li>Custodian of Aboh Ancestral Heritage</li>
                         </ul>
                     </div>
                 </div>
@@ -486,8 +1087,10 @@
                     <img src="PNG 3.png" alt="Title text" style="max-width: 100%; height: auto; margin-bottom: 20px;">
                     <h2>A Life of Calling, Kingship, and Purposeful Leadership</h2>
                     <div class="bio-content">
-                        <p><strong>His Imperial Majesty, Dr. Gregory Oputa III</strong>, is the Eze Aboh of the ancient Aboh Kingdom...</p>
-                        <p>Guided by faith, wisdom, and foresight, His Majesty stands as a bridge between generations—honouring the past while intentionally preparing the future.</p>
+                        <p><strong>His Imperial Majesty, Dr. Gregory Oputa III</strong>, is the Eze Aboh of the ancient Aboh Kingdom, a throne established in 1483. Ascending the throne with a deep sense of calling and responsibility, His Majesty understands kingship as sacred stewardship—rooted in accountability to God, history, and the people entrusted to his care.</p>
+                        <p>A global leader and strategic thinker, His Majesty has consistently articulated a clear vision to reset and reposition the Aboh Kingdom for relevance, order, and progress.</p>
+                        <p>As custodian of Aboh ancestral heritage, His Imperial Majesty has championed a renewed approach to culture—one that celebrates identity without compromising truth or faith. Under his reign, emphasis is placed on community development, disciplined leadership, and structured growth.</p>
+                        <p>Guided by faith, wisdom, and foresight, His Majesty stands as a bridge between generations—honouring the past while intentionally preparing the future. His vision for Aboh Kingdom is one of enlightened leadership, empowered people, cultural dignity, and lasting legacy.</p>
                     </div>
                 </div>
             </div>
@@ -500,12 +1103,21 @@
         </div>
         <div class="media-content-blended">
             <div class="media-panel-text">
-                <p style="color:var(--secondary-color); text-transform:uppercase; letter-spacing:2px; margin-bottom:20px;">Featured Message</p>
-                <h2 style="color:var(--secondary-color); font-size:3rem;">The Crown and the Calling</h2>
-                <p style="margin-top:15px; color:#ddd;">Do you struggle to like yourself? Today, His Majesty shows how God rolls away shame...</p>
-                <div style="margin-top:30px;">
-                    <button class="btn-watch-blended"><i class="fas fa-play"></i> Watch Now</button>
-                </div>
+                <p class="panel-subtitle-blended">Featured Message</p>
+                <h2>The Crown and the Calling: A Legacy Reimagined</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #ddd; margin-top: 15px;">
+                    Do you struggle to like yourself? Today, His Majesty shows how God rolls away shame, renews your mind, and helps you love yourself in Christ so you can truly love others.
+                </p>
+                <!-- <div class="panel-offers-grid-blended">
+                    <div class="mini-offer-card-blended">
+                        <h5> THE CROWN AND THE CALLING</h5>
+                        <div class="mini-price-blended">R90</div>
+                        <button class="mini-add-btn">Buy Now</button>
+                    </div>
+                </div> -->
+                <div class="panel-actions">
+                    <button class="btn-watch-blended" href=""><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
             </div>
         </div>
     </section>
@@ -518,8 +1130,8 @@
                     <div class="flipper">
                         <div class="front" style="background-image: url('PNG - PIC 2.png'); background-size: cover;"></div>
                         <div class="back">
-                            <h3>Sixty Years of Purpose</h3>
-                            <p>Celebrating a life of faith and leadership.</p>
+                            <h3>Sixty Years of Purpose, Leadership, and Impact</h3>
+                            <p>The 60th birthday of His Imperial Majesty marks a profound milestone celebrating a life of faith and leadership.</p>
                         </div>
                     </div>
                 </div>
@@ -527,8 +1139,8 @@
                     <div class="flipper">
                         <div class="front" style="background-image: url('1762508958676.jpg'); background-size: cover;"></div>
                         <div class="back">
-                            <h3>Years of Consecrated Reign</h3>
-                            <p>A reign defined by values and responsibility.</p>
+                            <h3>Years of Consecrated Reign and Service</h3>
+                            <p>Each coronation anniversary commemorates a reign defined by values, responsibility, and service.</p>
                         </div>
                     </div>
                 </div>
@@ -537,21 +1149,42 @@
     </section>
 
     <section class="featured-resource-section" id="resources">
-        <div class="container">
+    <div class="container">
+        <div class="featured-header">
             <h2>Featured Book</h2>
-            <div class="featured-book-layout">
-                <div class="featured-book-image">
-                    <img src="Gemini_Generated_Image_sdk54psdk54psdk5.png" alt="Book Cover">
+        </div>
+
+        <div class="featured-book-layout">
+            <div class="featured-book-image">
+                <img src="Gemini_Generated_Image_sdk54psdk54psdk5.png" alt="SHIFTS Book Cover">
+            </div>
+
+            <div class="featured-book-details">
+                <h3>THE CROWN AND THE CALLING </h3>
+                
+                <p class="book-description">
+                    In this captivating biography, His Imperial Majesty Dr. Greg Nnamdi Oputa III pulls back the curtain on the life of a modern king. It is a story of extraordinary transitions—from the fast-paced world of global entrepreneurship to the sacred responsibilities of the throne of the Aboh Kingdom.
+
+At its heart, the book explores a powerful paradox: that true power is found not in seizing authority, but in surrendering to a higher purpose
+                </p>
+
+                <div class="shifts-framework">
+                    <p>What Makes This Story <strong>Compelling?</strong></p>
+                    <ol class="framework-list">
+                        <li><strong>The Intersection of Worlds:</strong> Witness the rare evolution of a global philanthropist and businessman into a traditional monarch, proving that ancient heritage can thrive in a modern world.</li>
+                        <li><strong>A "Soulful" Evolution:</strong> Explore how Dr. Oputa III navigates the tension between maintaining centuries-old traditions and implementing visionary, faith-driven governance.</li>
+                        <li><strong>Leadership with Accountability:</strong>: This is not just a memoir of royalty; it is a masterclass in leadership, arguing that any position of power must be balanced by spiritual accountability and moral clarity.</li>
+                        <li><strong>The Burden of Legacy:</strong>The book dives deep into the weight of what we inherit vs. the value of what we intentionally build for future generations.</li>
+                    </ol>
                 </div>
-                <div class="featured-book-details">
-                    <h3>THE CROWN AND THE CALLING</h3>
-                    <p>Witness the rare evolution of a global philanthropist into a traditional monarch.</p>
-                </div>
+
+                <!-- <a href="#" class="btn-get-book">Get the Book Now &rarr;</a> -->
             </div>
         </div>
+    </div>
     </section>
 
-    <section id="gallery">
+    <section id="gallery" style="background-color: var(--light-bg);">
         <div class="container">
             <h2>Moments of Kingship</h2>
             <div class="image-gallery">
@@ -569,58 +1202,112 @@
     <section id="contact">
         <div class="container">
             <h2>Contact The Royal Palace</h2>
-            <div style="margin-top:30px;">
-                <p><strong>The Royal Palace of Aboh Kingdom</strong><br>Aboh, Delta State, Nigeria</p>
-                <p><strong>Email:</strong> drgregoputa111@gmail.com</p>
-                <p><strong>Phone:</strong> +234 704 334 4423</p>
+            <div class="contact-layout">
+                <!-- <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="form-group"><input type="text" placeholder="Name" required></div>
+                        <div class="form-group"><input type="email" placeholder="Email" required></div>
+                        <div class="form-group"><textarea placeholder="Message" required></textarea></div>
+                        <p style="font-size: 0.8rem; margin-bottom: 15px; color: #666;">Messages are processed by the Office of the Palace Secretary.</p>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div> -->
+                <div class="contact-info-panel">
+                    <!-- <h3>Office of His Imperial Majesty</h3> -->
+                    <p><strong>The Royal Palace of Aboh Kingdom</strong><br>Aboh, Delta State, Nigeria</p>
+                    <p><strong>Email:</strong> drgregoputa111@gmail.com</p>
+                    <p><strong>Phone:</strong> +234 704 334 4423</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="site-footer">
-        <div class="footer-content-wrapper">
-            <div class="footer-col">
-                <img src="seal.png" alt="Seal" class="footer-seal">
-                <p>Preserving heritage with purpose.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Menu</h4>
-                <p><a href="#home" style="color:#ccc; text-decoration:none;">Home</a></p>
-                <p><a href="#biography" style="color:#ccc; text-decoration:none;">Biography</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Official Social Media</h4>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+    <div class="container footer-content-wrapper">
+        <div class="footer-col footer-branding">
+            <img src="seal.png" alt="Royal Seal" class="footer-seal">
+            <p>Preserving the sacred heritage of the ancient Aboh Kingdom.</p>
+            <span class="royal-motto">“Tradition with Truth. Kingship with Purpose.”</span>
+        </div>
+        <div class="footer-col">
+            <h4>Palace Menu</h4>
+            <nav class="footer-nav-list">
+                <a href="#home">Home</a>
+                <a href="#biography">Biography</a>
+                <a href="#media">Media</a>
+                <a href="#resources">Resources</a>
+            </nav>
+        </div>
+        <div class="footer-col">
+            <h4>Information</h4>
+            <nav class="footer-nav-list">
+                <a href="#events">Events</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-col">
+            <h4>Official Social Media</h4>
+            <div class="footer-socials">
+                <a href="https://facebook.com/ObiOputa111ofAboh" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/ObiOputa111ofAboh" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://threads.net/@ObiOputa111ofAboh" target="_blank" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://tiktok.com/@obioputa111ofabohkingdom" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/ObiOputaofAboh" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://youtube.com/@ObiOputa111ofAboh" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <div style="background:#111; padding:20px; text-align:center;">
-            <p style="color:#666; font-size:0.75rem;">&copy; <span id="footerYear"></span> His Imperial Majesty, Dr. Gregory Oputa III.</p>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="footerYear"></span> His Imperial Majesty, Dr. Gregory Oputa III. All rights reserved.</p>
         </div>
+    </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. MOBILE MENU TOGGLE
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+
+            // 2. LIGHTBOX FOR GALLERY
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightboxImage');
             document.querySelectorAll('.gallery-item img').forEach(img => {
                 img.addEventListener('click', function() {
-                    lightboxImage.src = this.src;
-                    lightbox.classList.add('active');
+                    if (lightbox && lightboxImage) {
+                        lightboxImage.src = this.src;
+                        lightbox.classList.add('active');
+                    }
                 });
             });
-            lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+            if (lightbox) {
+                lightbox.addEventListener('click', function() {
+                    this.classList.remove('active');
+                });
+            }
 
+            // 3. VIDEO 3-SECOND LOOP LOGIC
             const video = document.getElementById('royalLoopVideo');
             if (video) {
                 video.addEventListener('timeupdate', function() {
-                    if (this.currentTime >= 3) { this.currentTime = 0; }
+                    if (this.currentTime >= 3) {
+                        this.currentTime = 0;
+                        this.play();
+                    }
                 });
             }
-            document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+            // 4. DYNAMIC FOOTER YEAR
+            const yearSpan = document.getElementById('footerYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
         });
     </script>
 </body>
