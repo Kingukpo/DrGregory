@@ -889,7 +889,7 @@
                 justify-content: space-between;
                 padding: 0 5px;
             }
-            .menu-toggle { display: block; }
+            .menu-toggle { display: block; position: relative; z-index: 3000 !important; }
             .nav-links {
                 position: fixed;
                 top: 0; right: 0; width: 70%; height: 89.5%;
@@ -929,7 +929,7 @@
             }
 
             .hamburger {
-                transition: all 0.3s ease ease-in-out;
+                transition: all 0.3s ease ease-in-out; background-color: var(--light-bg) !important;
             }
 
             #biography { 
