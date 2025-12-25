@@ -543,24 +543,33 @@
 
         .featured-book-layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 1.2fr 1.8fr;
+            gap: 60px;
+            align-items: flex-start; /* Aligns items to the top like the screenshot */
+        }
+
+        .featured-book-image {
+            position: -webkit-sticky; /* For Safari support */
+            position: sticky;
+            top: 120px; /* This sets how far from the top the image "sticks" */
+            height: fit-content;
+            text-align: center;
         }
 
         .featured-book-image img {
             width: 100%;
-            max-width: 400px;
+            max-width: 550px;
             height: auto;
-            box-shadow: 25px 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 25px 25px 50px rgba(0,0,0,0.1.5);
             border-radius: 4px;
         }
 
         .featured-book-details h3 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
             margin: 10px 0 20px;
             line-height: 1.2;
+            text-align: left;
         }
 
         .book-description {
@@ -578,6 +587,28 @@
             margin-bottom: 12px;
             font-size: 1rem;
             color: #333;
+        }
+
+        .resources-grid img {
+            width: 100%;       /* Forces image to fill the grid cell width */
+            height: auto;      /* Maintains original aspect ratio */
+            object-fit: cover; /* Optional: ensures it fills the area without distortion */
+        }
+
+        .btn-get-book {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn-get-book:hover {
+            transform: translateY(-2px);
         }
 
         /* --- 7. GALLERY & LIGHTBOX --- */
@@ -869,6 +900,11 @@
                 height: 300px; /* Reduced height for better mobile viewing */
                 object-fit: contain;
             }
+
+            .featured-book-layout {
+                grid-template-columns: 1fr;
+            }
+            
         }
     </style>
 </head>
@@ -961,9 +997,10 @@
         <div class="media-content-blended">
             <div class="media-panel-text">
                 <p class="panel-subtitle-blended">Featured Message</p>
-                <h2>The Crown and the Calling</h2>
+                <h2>Resetting the Throne</h2>
                 <p style="font-size: 1.1rem; line-height: 1.8; color: #ddd; margin-top: 15px;">
-                   Resetting the Throne: Tradition, Truth, and the Future of Aboh Kingdom
+                   <strong> Tradition, Truth, and the Future of Aboh Kingdom</strong> <br>
+                   Through reflective narrative and structured insight, His Imperial Majesty challenges outdated interpretations of tradition while affirming culture as a source of identity, unity, and moral strength.
                 </p>
                 <div class="panel-actions" style="margin-top: 40px;">
                     <div>
@@ -1039,6 +1076,7 @@
                         <li><strong>Leadership by Example:</strong> Influence is strengthened by character and conduct. Leaders must embody the values they expect from the people they serve.</li>
                         <li><strong>Legacy Thinking:</strong> Every decision must consider its impact on generations unborn. Leadership today must build systems, values, and structures that endure beyond the present</li>
                     </ol>
+                    <!-- <a href="#" class="btn-get-book">Get the Book Now &rarr;</a> -->
                     <p style="color: var(--primary-color); font-size: 1.5rem;"><strong>Official Launch Date: 27th Of December 2025</strong> </p>
                 </div>
             </div>
