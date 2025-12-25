@@ -76,7 +76,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 0 50px;
+            padding: 0 50px; 
             position: relative;
             height: 100%;
         }
@@ -153,12 +153,12 @@
             margin: 6px 0;
         }
 
-        /* --- 3. UPDATED HERO SECTION (FIXED FOR MOBILE & DESKTOP) --- */
+        /* --- 3. HERO SECTION --- */
         #home {
             background-color: #ef0019;
             min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Mobile: Stack Vertically */
+            flex-direction: column;
             padding-top: 90px;
             overflow: hidden;
             text-align: left;
@@ -166,13 +166,12 @@
 
         .hero-container {
             display: flex;
-            flex-direction: column; /* Mobile: Stack Vertically */
+            flex-direction: column;
             width: 100%;
             height: 100%;
             flex: 1;
         }
 
-        /* Mobile Image: Takes top half, NO absolute positioning */
         .hero-image-wrapper {
             width: 100%;
             height: 45vh; 
@@ -180,7 +179,7 @@
             justify-content: center;
             align-items: flex-end;
             background-color: #ef0019;
-            order: 1; /* Ensure image is first on mobile */
+            order: 1; 
         }
 
         .hero-main-img {
@@ -189,12 +188,11 @@
             object-fit: contain;
         }
 
-        /* Mobile Text: Takes bottom half */
         .hero-text-content {
-            padding: 30px 20px 60px 20px;
+            padding: 30px 20px 60px 20px; 
             background-color: #ef0019;
             color: #fff;
-            order: 2; /* Ensure text is second on mobile */
+            order: 2;
         }
 
         .hero-text-content h1 {
@@ -232,7 +230,7 @@
             margin-top: 10px;
         }
 
-        /* --- DESKTOP HERO OVERRIDES (Sam Adeyemi Layout) --- */
+        /* Desktop Layout Fix: Aligning text with Logo */
         @media (min-width: 992px) {
             #home {
                 flex-direction: row;
@@ -241,26 +239,29 @@
                 align-items: center;
             }
             .hero-container {
-                flex-direction: row; /* Side by Side */
+                flex-direction: row;
                 height: 100%;
-                max-width: 1400px;
-                margin: 0 auto;
+                width: 100%;
+                max-width: 100%; /* Using full width for precise alignment */
+                margin: 0;
                 position: relative;
             }
             .hero-text-content {
                 flex: 0 0 50%;
-                padding: 0 80px;
+                padding-left: 50px; /* Matches .nav-content padding */
+                padding-right: 20px;
                 background: transparent;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 z-index: 10;
+                max-width: 600px; /* Keeps text block readable */
             }
             .hero-image-wrapper {
                 position: absolute;
                 right: 0;
                 bottom: 0;
-                width: 60%;
+                width: 55%;
                 height: 100%;
                 background: transparent;
                 justify-content: flex-end;
@@ -352,7 +353,6 @@
             margin-bottom: 5px;
         }
 
-        /* --- THE GRADIENT BLEND --- */
         .royal-blend-divider {
             height: 20px; 
             background: linear-gradient(to bottom, #ef0019 0%, #ffffff 100%);
@@ -443,57 +443,6 @@
             margin-bottom: 20px;
         }
 
-        .panel-offers-grid-blended {
-            display: flex;
-            gap: 15px;
-            margin: 30px 0;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .panel-actions {
-            justify-content: center;
-            width: 100%;
-        }
-
-        .mini-offer-card-blended {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            flex: 1;
-            text-align: center;
-        }
-
-        .mini-offer-card-blended h5 {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .mini-price-blended {
-            color: var(--secondary-color);
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .mini-add-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
         .btn-watch-blended {
             background-color: #ef0019;
             color: white;
@@ -533,6 +482,21 @@
 
         .flip-container:hover .flipper {
             transform: rotateY(180deg);
+        }
+
+        .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Add these three lines */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black; /* Optional: adds a light grey background for letterboxing */
         }
 
         .front, .back {
@@ -577,16 +541,6 @@
             color: var(--primary-color);
         }
 
-        .btn-view-all {
-            text-decoration: none;
-            color: #333;
-            border: 1px solid #333;
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
         .featured-book-layout {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -609,13 +563,6 @@
             line-height: 1.2;
         }
 
-        .edition-label {
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
         .book-description {
             font-size: 1.05rem;
             color: #444;
@@ -631,22 +578,6 @@
             margin-bottom: 12px;
             font-size: 1rem;
             color: #333;
-        }
-
-        .btn-get-book {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-get-book:hover {
-            transform: translateY(-3px);
-            background-color: var(--primary-color);
         }
 
         /* --- 7. GALLERY & LIGHTBOX --- */
@@ -667,29 +598,48 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
         
         .lightbox {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
             background: rgba(0, 0, 0, 0.9);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 2000; visibility: hidden; opacity: 0;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            z-index: 3000; /* Higher than header/nav */
+            visibility: hidden; 
+            opacity: 0;
             transition: 0.3s;
+            padding: 20px; /* Adds breathing room around the image */
+            cursor: zoom-out;
         }
         
         .lightbox.active { visibility: visible; opacity: 1; }
 
+        /* This is the key fix for the image size */
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh; /* Limits height to 80% of the screen */
+            object-fit: contain; /* Ensures the whole image stays visible without cropping */
+            border: 3px solid var(--secondary-color);
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
         /* --- 8. CONTACT --- */
-        .contact-layout { display: flex; gap: 30px; text-align: left; flex-wrap: wrap; width: 100% !important; max-width: 100vw !important; padding-left: 15px !important; padding-right: 15px !important;
-        margin: 0 auto !important; overflow: hidden !important;}
-        .contact-form-container { flex: 1 1 100%; max-width: 100%; padding: 20px; border-radius: 8px; background: white; border: 1px solid #eee; }
+        .contact-layout { display: flex; gap: 30px; text-align: left; flex-wrap: wrap; width: 100% !important; max-width: 100vw !important; padding-left: 15px !important; padding-right: 15px !important; margin: 0 auto !important; overflow: hidden !important;}
         .contact-info-panel { flex: 1 1 300px; color: var(--dark-text); justify-content: center; text-align: center; }
         .contact-info-panel h3 { color: var(--primary-color); margin-bottom: 15px; }
         .contact-info-panel p { margin-bottom: 10px; font-size: 0.95rem; }
-        .form-group { margin-bottom: 15px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--tertiary-color); }
-        .submit-btn { background-color: var(--primary-color); color: white; padding: 12px 25px; border: none; cursor: pointer; }
 
         /* --- 9. FOOTER --- */
         .site-footer {
@@ -702,7 +652,6 @@
 
         .footer-content-wrapper {
             display: flex;
-            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
             gap: 40px;
             padding-bottom: 60px;
             flex-wrap: wrap;
@@ -789,7 +738,7 @@
             .nav-content { 
                 flex-direction: row; 
                 justify-content: space-between;
-                padding: 0 5px;
+                padding: 0 20px; 
             }
 
             .menu-toggle {
@@ -814,7 +763,6 @@
                 background-color: white; 
                 margin: 3.5px 0; 
                 transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-                transform-origin: center; 
             }
 
             .nav-open .hamburger:nth-child(1) {
@@ -824,7 +772,6 @@
 
             .nav-open .hamburger:nth-child(2) {
                 opacity: 0;
-                transform: translateX(-20px);
             }
 
             .nav-open .hamburger:nth-child(3) {
@@ -852,7 +799,7 @@
                 border-right: none !important;
                 border-bottom: 2px solid var(--secondary-color);
             }
-            .logo-box img { height: 120px; top: -10px; left: 0; right: auto; }
+            .logo-box img { height: 120px; top: -10px; left: 0; }
             
             #biography { 
                 margin-top: 0; 
@@ -901,14 +848,7 @@
             }
 
             .media-split-section { flex-direction: column; min-height: auto; }
-            .media-video-area-blended::after {
-                background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%);
-            }
             .media-content-blended { padding: 40px 20px; }
-            .media-panel-text { text-align: center; }
-            .panel-offers-grid-blended { flex-direction: column; }
-            
-            /* RESOURCES RESPONSIVE */
             .featured-book-layout {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1015,8 +955,11 @@
                 <p style="font-size: 1.1rem; line-height: 1.8; color: #ddd; margin-top: 15px;">
                     Do you struggle to like yourself? Today, His Majesty shows how God rolls away shame, renews your mind, and helps you love yourself in Christ so you can truly love others.
                 </p>
-                <div class="panel-actions">
-                    <button class="btn-watch-blended" href=""><i class="fas fa-play"></i> Watch Now</button>
+                <div class="panel-actions" style="margin-top: 40px;">
+                    <div>
+                        <a href="https://youtu.be/fqv22bPTiUw?si=l0VRlhD3FaHnOJvl" target="_blank" style="text-decoration: none;" class="btn-watch-blended"><i class="fas fa-play"></i>Watch Now</a>
+                    </div>
+                    <!-- <button class="btn-watch-blended" href="https://youtu.be/fqv22bPTiUw?si=l0VRlhD3FaHnOJvl"><i class="fas fa-play"></i> <a href="https://youtu.be/fqv22bPTiUw?si=l0VRlhD3FaHnOJvl" target="_blank" style="color: var(--light-bg); text-decoration: none !important;">Watch Now</a></button> -->
                 </div>
             </div>
         </div>
@@ -1028,7 +971,7 @@
             <div class="card-grid">
                 <div class="flip-container">
                     <div class="flipper">
-                        <div class="front" style="background-image: url('PNG - PIC 2.png'); background-size: cover;"></div>
+                        <div class="front" style="background-image: url('PNG 2.png'); background-size: contain;"></div>
                         <div class="back">
                             <h3>Sixty Years of Purpose, Leadership, and Impact</h3>
                             <p>The 60th birthday of His Imperial Majesty marks a profound milestone celebrating a life of faith and leadership. <br>The 60th birthday of His Imperial Majesty marks a profound milestone—celebrating a life of faith, leadership, and unwavering commitment to the Aboh Kingdom. It is a season of gratitude, honour, and reflection on decades of purposeful service and visionary kingship.</p>
@@ -1037,7 +980,7 @@
                 </div>
                 <div class="flip-container">
                     <div class="flipper">
-                        <div class="front" style="background-image: url('1762508958676.jpg'); background-size: cover;"></div>
+                        <div class="front" style="background-image: url('PNG 1.png'); background-size: contain;"></div>
                         <div class="back">
                             <h3>Years of Consecrated Reign and Service</h3>
                             <p>Each coronation anniversary commemorates a reign defined by values, responsibility, and service. <br>
@@ -1057,26 +1000,36 @@
 
         <div class="featured-book-layout">
             <div class="featured-book-image">
-                <img src="THE CROWN AND THE CALLING - FRONT PAGE.jpg" alt="SHIFTS Book Cover">
+                <img src="THE CROWN AND THE CALLING - PREVIEW 1.jpg" alt="The Crown and The Calling">
             </div>
 
             <div class="featured-book-details">
                 <h3>THE CROWN AND THE CALLING </h3>
                 
                 <p class="book-description">
-                    In this captivating biography, His Imperial Majesty Dr. Greg Nnamdi Oputa III pulls back the curtain on the life of a modern king. It is a story of extraordinary transitions—from the fast-paced world of global entrepreneurship to the sacred responsibilities of the throne of the Aboh Kingdom.
+                    <strong>Resetting the Throne: Tradition, Truth, and the Future of Aboh Kingdom</strong>
 
-At its heart, the book explores a powerful paradox: that true power is found not in seizing authority, but in surrendering to a higher purpose
+        First Edition
+
+        Resetting the Throne is a thoughtful and authoritative work by His Imperial Majesty, Dr. Gregory Oputa III, offering a rare insight into kingship as sacred stewardship rather than inherited privilege.
+        Rooted in lived experience, cultural responsibility, and principled leadership, the book explores the delicate balance between preserving ancestral heritage and embracing reform in a rapidly changing world.
+        Through reflective narrative and structured insight, His Imperial Majesty challenges outdated interpretations of tradition while affirming culture as a source of identity, unity, and moral strength. 
+        The book presents a clear vision for community-centred leadership, faith-guided governance, and legacy-driven development--positioning tradition not as a constraint, but as a foundation for sustainable progress.
+        Resetting the Throne serves both as a leadership philosophy and a practical framework for those entrusted with influence, authority, and responsibility across generations.
                 </p>
 
                 <div class="shifts-framework">
                     <p>What Makes This Story <strong>Compelling?</strong></p>
                     <ol class="framework-list">
-                        <li><strong>The Intersection of Worlds:</strong> Witness the rare evolution of a global philanthropist and businessman into a traditional monarch, proving that ancient heritage can thrive in a modern world.</li>
-                        <li><strong>A "Soulful" Evolution:</strong> Explore how Dr. Oputa III navigates the tension between maintaining centuries-old traditions and implementing visionary, faith-driven governance.</li>
-                        <li><strong>Leadership with Accountability:</strong>: This is not just a memoir of royalty; it is a masterclass in leadership, arguing that any position of power must be balanced by spiritual accountability and moral clarity.</li>
-                        <li><strong>The Burden of Legacy:</strong>The book dives deep into the weight of what we inherit vs. the value of what we intentionally build for future generations.</li>
+                        <li><strong>Tradition with Truth:</strong> Tradition must be preserved with understanding and integrity. Cultural practices should uphold truth, dignity, and purpose rather than blind repetition.</li>
+                        <li><strong>Kingship as Stewardship:</strong> Leadership is a sacred trust, not a personal possession. Authority exists to serve the people and remain accountable to God, history, and future generations.</li>
+                        <li><strong>Faith as Moral Compass:</strong> True leadership is anchored in faith and moral clarity. Culture and governance must align with values that uphold righteousness, discipline, and justice.</li>
+                        <li><strong>Community-Centred Development:</strong> Progress is meaningful only when it improves the lives of the people. Development must be inclusive, practical, and focused on unity, education, and opportunity.</li>
+                        <li><strong>Reform without Cultural Erasure:</strong> Modernization should refine tradition, not destroy it. Growth is achieved by adapting wisely while preserving cultural identity and historical continuity.</li>
+                        <li><strong>Leadership by Example:</strong> Influence is strengthened by character and conduct. Leaders must embody the values they expect from the people they serve.</li>
+                        <li><strong>Legacy Thinking:</strong> Every decision must consider its impact on generations unborn. Leadership today must build systems, values, and structures that endure beyond the present</li>
                     </ol>
+                    <p style="color: var(--primary-color); font-size: 1.5rem;"><strong>Official Launch Date: 27th Of December 2025</strong> </p>
                 </div>
             </div>
         </div>
@@ -1156,7 +1109,6 @@ At its heart, the book explores a powerful paradox: that true power is found not
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. MOBILE MENU TOGGLE
             const menuToggle = document.getElementById('menuToggle');
             if (menuToggle) {
                 menuToggle.addEventListener('click', () => {
@@ -1164,7 +1116,6 @@ At its heart, the book explores a powerful paradox: that true power is found not
                 });
             }
 
-            // 2. LIGHTBOX FOR GALLERY
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightboxImage');
             document.querySelectorAll('.gallery-item img').forEach(img => {
@@ -1181,7 +1132,6 @@ At its heart, the book explores a powerful paradox: that true power is found not
                 });
             }
 
-            // 3. VIDEO 3-SECOND LOOP LOGIC
             const video = document.getElementById('royalLoopVideo');
             if (video) {
                 video.addEventListener('timeupdate', function() {
@@ -1192,7 +1142,6 @@ At its heart, the book explores a powerful paradox: that true power is found not
                 });
             }
 
-            // 4. DYNAMIC FOOTER YEAR
             const yearSpan = document.getElementById('footerYear');
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
