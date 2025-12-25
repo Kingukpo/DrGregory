@@ -583,7 +583,7 @@
         /* --- 7. GALLERY & LIGHTBOX --- */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
         
@@ -858,6 +858,16 @@
             }
             .framework-list {
                 text-align: left;
+            }
+
+            image-gallery {
+                /* On very small screens, 1 column; on tablets, 2 columns */
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .gallery-item {
+                height: 300px; /* Reduced height for better mobile viewing */
+                object-fit: contain;
             }
         }
     </style>
