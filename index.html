@@ -992,7 +992,7 @@
 
     <section class="media-split-section" id="media">
         <div class="media-video-area-blended">
-            <video id="royalLoopVideo" src="vid1.mp4" autoplay muted playsinline loop></video>
+            <video id="royalLoopVideo" src="vid.mp4" autoplay muted playsinline loop></video>
         </div>
         <div class="media-content-blended">
             <div class="media-panel-text">
@@ -1183,7 +1183,7 @@
             const video = document.getElementById('royalLoopVideo');
             if (video) {
                 video.addEventListener('timeupdate', function() {
-                    if (this.currentTime >= 3) {
+                    if (this.currentTime >= 16) {
                         this.currentTime = 0;
                         this.play();
                     }
