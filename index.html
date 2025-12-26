@@ -232,33 +232,32 @@
         }
 
         /* Desktop Layout Fix: Aligning text with Logo */
-        @media (max-width: 992px) {
+@media (max-width: 992px) {
     #home {
-        height: 100vh;
-        height: 100dvh; /* Fixes the cut-off buttons on mobile browsers */
+        height: 100vh; /* Forces full screen height */
+        height: 100dvh; /* Better support for mobile browser bars */
         display: flex;
         flex-direction: column;
-        padding-top: 80px; /* Space for the logo */
+        padding-top: 70px; /* Space for the logo */
         background-color: #ef0019;
         overflow: hidden;
-        text-align: left;
     }
 
     .hero-container {
         display: flex;
         flex-direction: column;
         height: 100%;
-        justify-content: space-between; /* Pushes image up and text down */
+        width: 100%;
     }
 
-    /* 1. IMAGE: Takes up the top half and sits on the text */
+    /* 1. IMAGE AREA: Takes top 55% of screen */
     .hero-image-wrapper {
-        flex: 0 0 45%; /* Shrinks image slightly so buttons fit on small screens */
+        flex: 0 0 55%; 
         display: flex;
         justify-content: center;
-        align-items: flex-end;
-        margin-bottom: -5px; /* Pulls text up to touch the image */
-        z-index: 1;
+        align-items: flex-end; /* Sits image on the "floor" of the top half */
+        margin-bottom: 0 !important;
+        background: transparent;
     }
 
     .hero-main-img {
@@ -267,73 +266,59 @@
         object-fit: contain;
     }
 
-    /* 2. TEXT: Anchored to the bottom */
+    /* 2. TEXT AREA: Takes bottom 45% of screen */
     .hero-text-content {
         flex: 1;
-        padding: 10px 20px 30px 20px !important;
-        background-color: #ef0019;
+        padding: 10px 25px 40px 25px !important;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        z-index: 2;
+        justify-content: center; /* Centers text vertically in the bottom half */
+        background-color: #ef0019;
     }
 
     .hero-text-content h1 {
-        font-size: 2.2rem !important; /* Bold impact like Sam Adeyemi */
+        font-size: 2.2rem !important;
         line-height: 1.1;
         margin: 5px 0 !important;
-        color: #fff;
+        font-weight: 800;
     }
 
     .hero-text-content p {
         font-size: 0.85rem !important;
         line-height: 1.4;
         margin-bottom: 20px !important;
-        color: rgba(255, 255, 255, 0.9);
+        opacity: 0.9;
     }
 
-    /* 3. BUTTONS: Side-by-side and styled like the reference */
+    /* 3. BUTTONS: Side-by-side white style like reference */
     .hero-btns {
         display: flex;
         gap: 10px;
         width: 100%;
-        margin-top: auto; /* Ensures they stay at the very bottom of the text block */
     }
 
     .hero-cta {
         flex: 1;
-        padding: 14px 5px !important;
+        padding: 12px 5px !important;
         font-size: 0.75rem !important;
         text-align: center;
         border-radius: 50px;
         text-transform: uppercase;
-        font-weight: 700;
+        letter-spacing: 1px;
         white-space: nowrap;
-        margin-top: 0;
     }
 
-    /* White Solid Button */
+    /* Primary Button (White Solid) */
     .hero-cta {
         background-color: #ffffff !important;
         color: #ef0019 !important;
     }
 
-    /* White Outline Button (Secondary) */
+    /* Secondary Button (White Outline like Sam Adeyemi) */
     .hero-cta.secondary {
         background-color: transparent !important;
         color: #ffffff !important;
         border: 2px solid #ffffff !important;
-    }
-
-    /* Navigation Menu Adjustments */
-    .menu-toggle {
-        top: 20px;
-        right: 20px;
-    }
-    
-    .logo-box img {
-        height: 110px;
-        top: -15px;
     }
 }
 
