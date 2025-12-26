@@ -155,170 +155,138 @@
         }
 
         /* --- 3. HERO SECTION --- */
-         #home {
+        /* --- 3. HERO SECTION (UPDATED PER VIDEO TEMPLATE) --- */
+        #home {
             background-color: #ef0019;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             padding-top: 90px;
-            overflow: hidden;
+            color: white;
             text-align: left;
+            overflow: hidden;
         }
 
         .hero-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse; /* Text on top for mobile */
             width: 100%;
-            height: 100%;
-            flex: 1;
-        }
-
-        .hero-image-wrapper {
-            width: 100%;
-            height: 45vh; 
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            background-color: #ef0019;
-            order: 1; 
-        }
-
-        .hero-main-img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .hero-text-content {
-            padding: 30px 20px 60px 20px; 
-            background-color: #ef0019;
-            color: #fff;
-            order: 2;
-        }
-
-        .hero-text-content h1 {
-            font-size: 2.8rem;
-            color: #fff;
-            line-height: 1.1;
-            margin: 10px 0;
-            font-family: var(--font-serif);
-        }
-
-        .hero-text-content p {
-            font-size: 1rem;
-            color: #fff;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            text-align: left;
+            flex: 1;
+            z-index: 10;
+            padding-top: 40px;
         }
 
         .hero-accent {
             font-family: var(--font-serif);
             font-style: italic;
             color: var(--secondary-color);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             display: block;
+            margin-bottom: 10px;
+        }
+
+        .hero-text-content h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-content p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .hero-cta {
-            background-color: var(--secondary-color);
-            color: #333;
-            padding: 14px 28px;
+            background-color: var(--light-bg);
+            color: #ef0019;
+            padding: 16px 32px;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
-            display: inline-block;
-            margin-top: 10px;
-        }   
+            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
 
-        /* Desktop Layout Fix: Aligning text with Logo */
-        @media (max-width: 992px) {
-            #home {
-                height: 100vh; /* Forces full screen height */
-                height: 100dvh; /* Better support for mobile browser bars */
-                display: flex;
-                flex-direction: column;
-                padding-top: 70px; /* Space for the logo */
-                background-color: #ef0019;
-                overflow: hidden;
-            }
-        
+        .hero-cta.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            object-fit: contain;
+        }
+
+        /* Tablet View */
+        @media (min-width: 768px) {
             .hero-container {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                width: 100%;
+                flex-direction: row; /* Side-by-side */
+                align-items: center;
             }
-        
-            /* 1. IMAGE AREA: Takes top 55% of screen */
-            .hero-image-wrapper {
-                flex: 0 0 55%; 
-                display: flex;
-                justify-content: center;
-                align-items: flex-end; /* Sits image on the "floor" of the top half */
-                margin-bottom: 0 !important;
-                background: transparent;
-            }
-        
-            .hero-main-img {
-                height: 100% !important;
-                width: auto !important;
-                object-fit: contain;
-            }
-        
-            /* 2. TEXT AREA: Takes bottom 45% of screen */
             .hero-text-content {
-                flex: 1;
-                padding: 10px 25px 40px 25px !important;
-                display: flex;
-                flex-direction: column;
-                justify-content: center; /* Centers text vertically in the bottom half */
-                background-color: #ef0019;
+                padding-top: 0;
+                padding-right: 40px;
             }
-        
             .hero-text-content h1 {
-                font-size: 2.2rem !important;
-                line-height: 1.1;
-                margin: 5px 0 !important;
-                font-weight: 800;
+                font-size: 3.5rem;
             }
-        
-            .hero-text-content p {
-                font-size: 0.85rem !important;
-                line-height: 1.4;
-                margin-bottom: 20px !important;
-                opacity: 0.9;
+            .hero-main-img {
+                max-width: 100%;
             }
-        
-            /* 3. BUTTONS: Side-by-side white style like reference */
-            .hero-btns {
-                display: flex;
-                gap: 10px;
-                width: 100%;
+        }
+
+        /* Laptop View - STRICT ALIGNMENT WITH NAV LOGO */
+        @media (min-width: 1024px) {
+            #home {
+                height: 100vh;
+                padding-top: 0;
             }
-        
-            .hero-cta {
-                flex: 1;
-                padding: 12px 5px !important;
-                font-size: 0.75rem !important;
-                text-align: center;
-                border-radius: 50px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                white-space: nowrap;
+            /* Setting hero-container width and padding to match nav-content's 50px padding */
+            .hero-container {
+                max-width: 100%;
+                padding: 0 50px; 
+                flex-direction: row;
+                justify-content: space-between;
             }
-        
-            /* Primary Button (White Solid) */
-            .hero-cta {
-                background-color: #ffffff !important;
-                color: #ef0019 !important;
+            .hero-text-content {
+                max-width: 650px;
             }
-        
-            /* Secondary Button (White Outline like Sam Adeyemi) */
-            .hero-cta.secondary {
-                background-color: transparent !important;
-                color: #ffffff !important;
-                border: 2px solid #ffffff !important;
+            .hero-text-content h1 {
+                font-size: 4.5rem;
+            }
+            .hero-image-wrapper {
+                justify-content: flex-end;
+            }
+            .hero-main-img {
+                height: 90vh;
+                width: auto;
+                max-width: none;
             }
         }
 
@@ -989,18 +957,17 @@
 
     <section id="home">
         <div class="hero-container">
-            <div class="hero-image-wrapper">
-                <img src="PNG - PIC 1.png" alt="His Imperial Majesty" class="hero-main-img">
-            </div>
-            
             <div class="hero-text-content">
                 <span class="hero-accent">His Imperial Majesty</span>
                 <h1>Dr. Gregory Oputa III</h1>
                 <p>Eze Aboh (Since 1483) | Paramount Ruler of Aboh Kingdom. A global leader with a clear and compelling vision to reset the Aboh Kingdom, His Imperial Majesty, Dr. Gregory Oputa III, is a strategic thinker and custodian of a rich cultural heritage. His reign is anchored on principled leadership, community development, and sustainable progress—honouring ancient tradition while courageously shaping a purposeful future.</p>
                 <div class="hero-btns">
-                    <a href="#biography" class="hero-cta">Read Biography &rarr;</a>
-                    <a href="#media" class="hero-cta secondary">Watch Message &rarr;</a>
-                </div>
+                <a href="#biography" class="hero-cta">Read Biography &rarr;</a>
+                <a href="#media" class="hero-cta secondary">Watch Message &rarr;</a>
+            </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="PNG - PIC 1.png" alt="His Imperial Majesty" class="hero-main-img">
             </div>
         </div>
     </section>
