@@ -230,54 +230,50 @@
             display: inline-block;
             margin-top: 10px;
         }
+
         /* Desktop Layout Fix: Aligning text with Logo */
-       @media (min-width: 992px) {
+        @media (min-width: 992px) {
             #home {
                 flex-direction: row;
-                height: 100vh; /* Changed from 90vh to fill screen */
+                height: 90vh;
                 padding-top: 0;
-                display: flex;
-                align-items: flex-end; /* Anchors the entire row to the bottom */
+                align-items: center;
             }
             .hero-container {
                 flex-direction: row;
                 height: 100%;
                 width: 100%;
-                max-width: 100%;
+                max-width: 100%; /* Using full width for precise alignment */
                 margin: 0;
                 position: relative;
-                display: flex;
-                align-items: flex-end; /* Anchors internal content to bottom */
             }
             .hero-text-content {
                 flex: 0 0 50%;
-                padding-left: 50px;
+                padding-left: 50px; /* Matches .nav-content padding */
                 padding-right: 20px;
-                padding-bottom: 80px; /* Space from the bottom edge */
                 background: transparent;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-end; /* Pulls text to the bottom */
+                justify-content: center;
                 z-index: 10;
-                max-width: 600px;
+                max-width: 600px; /* Keeps text block readable */
             }
             .hero-image-wrapper {
                 position: absolute;
                 right: 0;
-                bottom: 0; /* Forces image to stay at the absolute bottom */
+                bottom: 0;
                 width: 55%;
                 height: 100%;
                 background: transparent;
-                display: flex;
                 justify-content: flex-end;
-                align-items: flex-end; /* Ensures the image sits on the bottom edge */
                 z-index: 1;
             }
             .hero-main-img {
-                height: 95%; /* Adjust this to make image taller or shorter */
+                height: 95%;
                 width: auto;
-                object-fit: contain;
             }
+        }
+
         /* --- 4. BIOGRAPHY SECTION --- */
         #biography {
             background-color: var(--light-bg);
