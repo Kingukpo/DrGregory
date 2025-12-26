@@ -232,108 +232,78 @@
         }
 
         /* Desktop Layout Fix: Aligning text with Logo */
-        @media (min-width: 992px) {
+        /* --- FULL SCREEN MOBILE HERO FIX --- */
+        @media (max-width: 992px) {
             #home {
-                flex-direction: row;
-                height: 90vh;
-                padding-top: 60px !important;
-                align-items: center;
-                min-height: auto;
-            }
-            .hero-container {
-                flex-direction: row;
-                height: 100%;
-                width: 100%;
-                max-width: 100%; /* Using full width for precise alignment */
-                margin: 0;
-                position: relative;
-            }
-            .hero-text-content {
-                flex: 0 0 50%;
-                padding-left: 50px; /* Matches .nav-content padding */
-                padding-right: 20px;
-                background: transparent;
+                height: 100vh; /* Forces the section to cover the full screen */
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                z-index: 10;
-                padding: 10px 25px 60px 25px !important;
-                max-width: 600px; /* Keeps text block readable */
+                padding-top: 90px; /* Space for the fixed header */
+                box-sizing: border-box;
+                overflow: hidden; /* Prevents stray scrollbars */
+                background-color: #ef0019;
             }
+        
+            .hero-container {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+            }
+        
             .hero-image-wrapper {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 55%;
-                height: 60vh !important;
+                /* Image takes up 45% of the available height */
+                flex: 0 0 45%; 
+                display: flex;
+                justify-content: center;
+                align-items: flex-end; /* Sits the image exactly on top of the text */
+                margin-bottom: 0 !important;
                 background: transparent;
-                justify-content: flex-end;
-                z-index: 1;
-                margin-bottom: -20px;
             }
+        
             .hero-main-img {
-                height: 95%;
-                width: auto;
+                height: 100% !important; /* Constrains image to the 45% wrapper */
+                width: auto !important;
+                object-fit: contain; /* Prevents the "zoomed in" cropping */
+                display: block;
             }
+        
+            .hero-text-content {
+                /* Text area takes up the remaining 55% of the screen */
+                flex: 1; 
+                padding: 10px 25px 40px 25px !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start; /* Aligns text close to the image */
+                background-color: #ef0019;
+            }
+        
+            .hero-accent {
+                font-size: 0.9rem !important;
+                margin-bottom: 2px !important;
+            }
+        
             .hero-text-content h1 {
-        /* Match the tight line-spacing of your reference */
-        font-size: 2.5rem;
-        line-height: 1.1;
-        margin-top: 5px;
+                font-size: 2.2rem !important; /* Large bold heading like Sam Adeyemi's */
+                line-height: 1.1;
+                margin: 5px 0 !important;
+                font-weight: 900;
+            }
+        
+            .hero-text-content p {
+                font-size: 0.85rem !important; /* Smaller size to ensure it fits the 100vh screen */
+                line-height: 1.5;
+                margin-bottom: 20px !important;
+                opacity: 0.9;
+            }
+        
+            .hero-cta {
+                align-self: flex-start; /* Keeps button on the left */
+                padding: 14px 28px !important;
+                font-size: 0.9rem !important;
             }
         }
-
-        /* --- UPDATED MOBILE HERO FIX --- */
-@media (max-width: 992px) {
-    #home {
-        padding-top: 40px !important; /* Reduces gap between logo and image */
-        min-height: auto !important;
-        display: block !important;
-    }
-
-    .hero-container {
-        display: block !important;
-    }
-
-    .hero-image-wrapper {
-        height: auto !important; /* Removes the forced vertical gap */
-        display: flex;
-        justify-content: center;
-        margin-bottom: -15px !important; /* Pulls text UP towards the image */
-    }
-
-    .hero-main-img {
-        width: 100% !important;
-        max-width: 450px; /* Adjust this to make image larger/smaller */
-        height: auto !important;
-        display: block;
-    }
-
-    .hero-text-content {
-        padding-top: 0 !important; /* Removes gap at top of text */
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        text-align: left;
-    }
-
-    .hero-text-content h1 {
-        font-size: 2.2rem !important;
-        line-height: 1.1;
-        margin: 5px 0 !important;
-    }
-
-    .hero-accent {
-        font-size: 1rem !important;
-        margin-bottom: 0 !important;
-    }
-
-    /* Adjust the button to look like the reference */
-    .hero-cta {
-        padding: 12px 24px !important;
-        font-size: 0.9rem !important;
-    }
-}
-
+        
         /* --- 4. BIOGRAPHY SECTION --- */
         #biography {
             background-color: var(--light-bg);
