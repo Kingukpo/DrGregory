@@ -233,74 +233,86 @@
 
         /* Desktop Layout Fix: Aligning text with Logo */
         /* --- FULL SCREEN MOBILE HERO FIX --- */
-        @media (max-width: 992px) {
+       @media (max-width: 992px) {
             #home {
-                height: 100vh; /* Forces the section to cover the full screen */
+                height: 100vh; /* Cover full screen */
+                height: 100dvh; /* Dynamic viewport height for mobile browsers */
+                background-color: #ef0019;
                 display: flex;
                 flex-direction: column;
-                padding-top: 90px; /* Space for the fixed header */
-                box-sizing: border-box;
-                overflow: hidden; /* Prevents stray scrollbars */
-                background-color: #ef0019;
+                padding-top: 80px; /* Space for your fixed logo/header */
+                overflow: hidden; /* Keeps everything tight on one screen */
             }
         
             .hero-container {
                 display: flex;
                 flex-direction: column;
                 height: 100%;
-                width: 100%;
+                justify-content: space-between;
             }
         
+            /* 1. THE IMAGE: Pulls it up close to the header and pushes it down to the text */
             .hero-image-wrapper {
-                /* Image takes up 45% of the available height */
-                flex: 0 0 45%; 
+                flex: 0 0 45%; /* Image takes up 45% of the screen height */
                 display: flex;
                 justify-content: center;
-                align-items: flex-end; /* Sits the image exactly on top of the text */
-                margin-bottom: 0 !important;
-                background: transparent;
+                align-items: flex-end; /* Sits the image exactly on the "floor" of its box */
+                margin-bottom: -10px; /* Pulls the text block UP to touch the image */
             }
         
             .hero-main-img {
-                height: 100% !important; /* Constrains image to the 45% wrapper */
+                height: 100% !important;
                 width: auto !important;
-                object-fit: contain; /* Prevents the "zoomed in" cropping */
-                display: block;
+                object-fit: contain; /* Ensures the whole person is visible without cropping */
             }
         
+            /* 2. THE TEXT: Fills the bottom half of the screen */
             .hero-text-content {
-                /* Text area takes up the remaining 55% of the screen */
-                flex: 1; 
-                padding: 10px 25px 40px 25px !important;
+                flex: 1; /* Takes the remaining space */
+                padding: 0 25px 30px 25px !important;
+                background-color: #ef0019;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start; /* Aligns text close to the image */
-                background-color: #ef0019;
-            }
-        
-            .hero-accent {
-                font-size: 0.9rem !important;
-                margin-bottom: 2px !important;
+                justify-content: flex-start; /* Aligns text immediately under the image */
+                text-align: left;
             }
         
             .hero-text-content h1 {
-                font-size: 2.2rem !important; /* Large bold heading like Sam Adeyemi's */
+                font-size: 2.3rem !important; /* Large bold font like the reference */
                 line-height: 1.1;
-                margin: 5px 0 !important;
-                font-weight: 900;
+                margin: 5px 0 10px 0 !important;
+                font-weight: 800;
             }
         
             .hero-text-content p {
-                font-size: 0.85rem !important; /* Smaller size to ensure it fits the 100vh screen */
+                font-size: 0.9rem !important;
                 line-height: 1.5;
                 margin-bottom: 20px !important;
-                opacity: 0.9;
+                max-width: 100%;
+            }
+        
+            /* 3. THE BUTTONS: Side-by-side like the desktop site */
+            .hero-btns {
+                display: flex;
+                gap: 10px;
+                width: 100%;
             }
         
             .hero-cta {
-                align-self: flex-start; /* Keeps button on the left */
-                padding: 14px 28px !important;
-                font-size: 0.9rem !important;
+                flex: 1; /* Makes buttons equal width */
+                padding: 14px 10px !important;
+                font-size: 0.8rem !important;
+                text-align: center;
+                border-radius: 50px;
+                white-space: nowrap;
+                text-transform: uppercase;
+            }
+        
+            /* Secondary button styling (The white outline look) */
+            .hero-cta.secondary {
+                background-color: transparent !important;
+                color: #ffffff !important;
+                border: 2px solid #ffffff !important;
             }
         }
         
