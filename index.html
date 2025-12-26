@@ -157,13 +157,12 @@
         /* --- 3. HERO SECTION --- */
         #home {
             background-color: #ef0019;
-            min-height: 100vh;
+            min-height: 100vh; /* Ensures it fills the whole screen */
             display: flex;
             flex-direction: column;
-            padding-top: 0px;
+            padding-top: 0; /* Remove top padding to let content slide down */
             overflow: hidden;
             text-align: left;
-            justify-content: flex-end;
         }
 
         .hero-container {
@@ -172,31 +171,30 @@
             width: 100%;
             height: 100%;
             flex: 1;
-            justify-content: flex-end;
+            justify-content: flex-end; /* This anchors everything to the bottom */
         }
-
+        /* Make sure the image sits flush at the bottom */
         .hero-image-wrapper {
             width: 100%;
-            height: 55vh; 
+            height: auto;
+            max-height: 60vh; /* Prevents the image from being too tall on some screens */
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            background-color: #ef0019;
-            order: 1; 
+            order: 1;
         }
-
         .hero-main-img {
             height: 100%;
             width: auto;
             object-fit: contain;
         }
 
-        .hero-text-content {
-            padding: 0px 20px 60px 50px; 
+       .hero-text-content {
+            /* Top, Right, Bottom, Left */
+            padding: 20px 30px 60px 50px; 
             background-color: #ef0019;
             color: #fff;
             order: 2;
-            max-width: 800px;
         }
 
         .hero-text-content h1 {
@@ -235,45 +233,31 @@
         }
 
         /* Desktop Layout Fix: Aligning text with Logo */
-        @media (min-width: 992px) {
+       @media (min-width: 992px) {
             #home {
-                flex-direction: row;
-                height: 90vh;
-                padding-top: 0;
-                align-items: flex-end;
+                height: 100vh;
+                display: flex;
+                align-items: flex-end; /* Anchors the whole row to the bottom */
             }
+            
             .hero-container {
                 flex-direction: row;
-                height: 100%;
-                width: 100%;
-                max-width: 100%; /* Using full width for precise alignment */
-                margin: 0;
-                position: relative;
+                align-items: flex-end; /* Anchors internal items to the bottom */
             }
+        
             .hero-text-content {
                 flex: 0 0 50%;
-                padding-left: 50px;
-                padding-right: 20px;
+                padding-bottom: 80px; /* Space from the very bottom edge */
                 background: transparent;
-                display: flex;
-                flex-direction: column;
-                /* CHANGE justify-content from center to flex-end */
-                justify-content: flex-end; 
-                /* ADD bottom padding to prevent the text from touching the very edge */
-                padding-bottom: 100px; 
                 z-index: 10;
-                max-width: 600px;
-                height: 100%;
             }
+        
             .hero-image-wrapper {
                 position: absolute;
                 right: 0;
                 bottom: 0;
+                height: 95%; /* Image reaches near the top but starts from bottom */
                 width: 55%;
-                height: 900%;
-                background: transparent;
-                justify-content: flex-end;
-                z-index: 1;
             }
             .hero-main-img {
                 height: 95%;
