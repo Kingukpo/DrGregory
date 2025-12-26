@@ -283,6 +283,57 @@
             }
         }
 
+        /* --- UPDATED MOBILE HERO FIX --- */
+@media (max-width: 992px) {
+    #home {
+        padding-top: 40px !important; /* Reduces gap between logo and image */
+        min-height: auto !important;
+        display: block !important;
+    }
+
+    .hero-container {
+        display: block !important;
+    }
+
+    .hero-image-wrapper {
+        height: auto !important; /* Removes the forced vertical gap */
+        display: flex;
+        justify-content: center;
+        margin-bottom: -15px !important; /* Pulls text UP towards the image */
+    }
+
+    .hero-main-img {
+        width: 100% !important;
+        max-width: 450px; /* Adjust this to make image larger/smaller */
+        height: auto !important;
+        display: block;
+    }
+
+    .hero-text-content {
+        padding-top: 0 !important; /* Removes gap at top of text */
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: left;
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.1;
+        margin: 5px 0 !important;
+    }
+
+    .hero-accent {
+        font-size: 1rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Adjust the button to look like the reference */
+    .hero-cta {
+        padding: 12px 24px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
         /* --- 4. BIOGRAPHY SECTION --- */
         #biography {
             background-color: var(--light-bg);
