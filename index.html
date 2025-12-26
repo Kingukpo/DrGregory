@@ -160,9 +160,10 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-top: 90px;
+            padding-top: 40px;
             overflow: hidden;
             text-align: left;
+            justify-content: flex-end;
         }
 
         .hero-container {
@@ -249,14 +250,17 @@
             }
             .hero-text-content {
                 flex: 0 0 50%;
-                padding-left: 50px; /* Matches .nav-content padding */
+                padding-left: 50px;
                 padding-right: 20px;
                 background: transparent;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                /* CHANGE justify-content from center to flex-end */
+                justify-content: flex-end; 
+                /* ADD bottom padding to prevent the text from touching the very edge */
+                padding-bottom: 80px; 
                 z-index: 10;
-                max-width: 600px; /* Keeps text block readable */
+                max-width: 600px;
             }
             .hero-image-wrapper {
                 position: absolute;
@@ -766,46 +770,6 @@
         }
 
         /* --- 10. MOBILE RESPONSIVE --- */
-
-        @media (max-width: 850px) {
-            #home {
-                height: 100vh; /* Set to full viewport height */
-                padding: 0; 
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end; /* Pushes content to the bottom */
-                align-items: center;
-            }
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-                width: 100%;
-                justify-content: flex-end; /* Ensures inner content stays low */
-            }
-            .hero-text-content {
-                flex: 0 0 auto;
-                padding-bottom: 20px; /* Reduced padding to bring text closer to bottom */
-                padding-left: 15px;
-                padding-right: 15px;
-                order: 1; /* Keeps text above the image if desired, or 2 to put below */
-            }
-            .hero-image-wrapper {
-                position: relative;
-                width: 100%;
-                right: 0;
-                height: 45vh; /* Controls how much space the image takes at the bottom */
-                display: flex;
-                align-items: flex-end; /* Forces image to touch the bottom edge */
-                order: 2;
-            }
-            .hero-main-img {
-                height: 100%;
-                width: auto;
-                margin: 0 auto;
-                object-position: bottom; /* Ensures the base of the photo is at the very bottom */
-            }
-        }
-
         @media (max-width: 992px) {
             .nav-content { 
                 flex-direction: row; 
