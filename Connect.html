@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect - His Imperial Majesty Dr. Greg Oputa III</title>
+    <link rel="icon" type="image/png" href="LOGO 2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* --- 1. GLOBAL STYLES & RESET --- */
+        :root {
+            --primary-color: #9370DB; 
+            --secondary-color: #FFD700; 
+            --tertiary-color: #C0C0C0; 
+            --light-bg: #ffffff; 
+            --dark-text: #333;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: white;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            color: var(--primary-color); 
+            margin-bottom: 0.5em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* --- 2. HEADER & NAVIGATION --- */
+        .header {
+            background: #ef0019;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 90px; 
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 50px; 
+            position: relative;
+            height: 100%;
+        }
+
+        .logo-box {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .logo-box img {
+            height: 160px; 
+            width: auto;
+            position: absolute;
+            top: -30px; 
+            left: 0;
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .nav-container {
+            margin-left: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 0 25px;
+            height: 35px; 
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:first-child {
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links a.active {
+            color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        #home {
+            background-color: #ef0019;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 90px;
+            color: white;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column-reverse; /* Text on top for mobile */
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-text-content {
+            flex: 1;
+            z-index: 10;
+            padding-top: 40px;
+        }
+
+        .hero-accent {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .hero-text-content h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-content p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta {
+            background-color: var(--light-bg);
+            color: #ef0019;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .hero-cta.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            object-fit: contain;
+        }
+
+        /* Tablet View */
+        @media (min-width: 768px) {
+            .hero-container {
+                flex-direction: row; /* Side-by-side */
+                align-items: center;
+            }
+            .hero-text-content {
+                padding-top: 0;
+                padding-right: 40px;
+            }
+            .hero-text-content h1 {
+                font-size: 3.5rem;
+            }
+            .hero-main-img {
+                max-width: 100%;
+            }
+        }
+
+        /* Laptop View - STRICT ALIGNMENT WITH NAV LOGO */
+        @media (min-width: 1024px) {
+            #home {
+                height: 100vh;
+                padding-top: 0;
+            }
+            /* Setting hero-container width and padding to match nav-content's 50px padding */
+            .hero-container {
+                max-width: 100%;
+                padding: 0 50px; 
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .hero-text-content {
+                max-width: 650px;
+            }
+            .hero-text-content h1 {
+                font-size: 4.5rem;
+            }
+            .hero-image-wrapper {
+                justify-content: flex-end;
+            }
+            .hero-main-img {
+                height: 90vh;
+                width: auto;
+                max-width: none;
+            }
+        }
+
+        /* --- 4. CONTACT SECTION --- */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+            text-align: left;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Contact Info Sidebar */
+        .contact-info-panel {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary-color);
+            position: sticky;
+            top: 120px;
+        }
+
+        .contact-info-panel h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-method:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .method-content h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .method-content p, .method-content a {
+            color: #555;
+            line-height: 1.6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .method-content a:hover {
+            color: var(--primary-color);
+        }
+
+        .royal-hours {
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(147, 112, 219, 0.05);
+            border-radius: 8px;
+        }
+
+        .royal-hours h4 {
+            font-family: var(--font-sans);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
+            background: white;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #7b5fc5 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(147, 112, 219, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(147, 112, 219, 0.3);
+        }
+
+        /* --- 5. SOCIAL CONNECT SECTION --- */
+        .social-connect {
+            padding: 80px 0;
+            background: #000;
+            color: white;
+        }
+
+        .social-connect h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .social-connect p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* --- 6. FOOTER --- */
+        .site-footer {
+            background: #000;
+            color: #ffffff;
+            padding: 80px 0 0;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-content-wrapper {
+            display: flex;
+            gap: 40px;
+            padding-bottom: 60px;
+            flex-wrap: wrap;
+            padding: 0 15px 60px 15px;
+        }
+
+        .footer-seal {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-col {
+            flex: 1 1 250px;
+            max-width: 100%;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .footer-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-nav-list a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav-list a:hover { color: #fff; }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            width: 38px;
+            height: 38px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            background: #111;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.75rem;
+        }
+
+        .royal-motto {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* --- 7. MOBILE RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .nav-content { 
+                flex-direction: row; 
+                justify-content: space-between;
+                padding: 0 20px; 
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed; 
+                top: 25px;
+                right: 25px;
+                z-index: 3000 !important;
+                background: transparent;
+                border: none;
+                width: 45px;
+                height: 45px;
+            }
+
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: white; 
+                margin: 3.5px 0; 
+                transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            }
+
+            .nav-open .hamburger:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
+            .nav-open .hamburger:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-open .hamburger:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+                background-color: var(--secondary-color) !important;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: 0; width: 70%; height: 100vh;
+                background-color: #ef0019;
+                flex-direction: column;
+                padding-top: 100px;
+                transform: translateX(100%);
+                z-index: 2000; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
+                transition: transform 0.4s ease-in-out;
+            }
+            .nav-open .nav-links { transform: translateX(0); }
+            .nav-links a { 
+                height: auto;
+                padding: 15px 30px;
+                font-size: 1.1rem;
+                width: 100%;
+                border-right: none !important;
+                border-bottom: 2px solid var(--secondary-color);
+            }
+            .logo-box img { height: 120px; top: -10px; left: 0; }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info-panel {
+                position: static;
+                padding: 30px;
+            }
+            
+            .contact-form-container {
+                padding: 30px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .container, .footer-content-wrapper {
+                width: 100% !important;
+                max-width: 100vw;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .footer-branding {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 0;
+            }
+            
+            .contact-header h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-text-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-main-img {
+                max-width: 400px;
+            }
+            
+            .social-connect {
+                padding: 60px 0;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icon-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-container {
+                padding: 25px;
+            }
+            
+            .submit-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-text-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* --- 8. FORM LOADING --- */
+        .form-loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--secondary-color);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Add this at the end of your existing CSS */
+
+        /* Hero Image Shake Animation */
+        @keyframes royalSway {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-1deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(1deg); }
+        }
+
+        .hero-main-img {
+            animation: royalSway 8s ease-in-out infinite;
+            transform-origin: center center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-content">
+            <div class="logo-box">
+                <a href="index.html">
+                    <img src="LOGO 2.png" alt="His Imperial Majesty Dr. Greg Oputa III Logo">
+                </a>
+            </div>
+            
+            <div class="nav-container">
+                <nav class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="index.html#biography">BIOGRAPHY</a>
+                    <a href="index.html#media">MEDIA</a>
+                    <a href="index.html#resources">RESOURCES</a>
+                    <a href="index.html#events">EVENTS</a>
+                    <a href="index.html#gallery">GALLERY</a>
+                    <a href="Connect.html" class="active">CONNECT</a>
+                </nav>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-container">
+            <div class="hero-text-content">
+                <span class="hero-accent">His Imperial Majesty</span>
+                <h1>Connect With the Throne</h1>
+                <p>Your messages, inquiries, and requests are welcomed at the Royal Palace. We value communication with our people and partners who share our vision for community development and cultural preservation.</p>
+                <div class="hero-btns">
+                    <a href="#contact-form" class="hero-cta">Send a Message &rarr;</a>
+                    <a href="#contact-info" class="hero-cta secondary">Contact Information &rarr;</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="seal.png" alt="His Imperial Majesty Dr. Gregory Oputa III" class="hero-main-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Communicate With the Palace</h2>
+                <p>For official inquiries, media requests, or general communication, please use the appropriate channels below. We endeavor to respond to all messages within 3-5 business days.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info-panel" id="contact-info">
+                    <h3>Royal Contact Information</h3>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>The Royal Palace</h4>
+                                <p>Aboh Kingdom, Ndokwa East LGA</p>
+                                <p>Delta State, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Official Correspondence</h4>
+                                <a href="mailto:drgregoputa111@gmail.com">drgregoputa111@gmail.com</a>
+                                <p>For formal communications and official matters</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Palace Secretariat</h4>
+                                <a href="tel:+2347043344423">+234 704 334 4423</a>
+                                <p>Monday - Friday, 9AM - 5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="royal-hours">
+                        <h4>Protocol for Royal Communications</h4>
+                        <p>All official communications should include:</p>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li style="margin-bottom: 5px;">Full name and title (if applicable)</li>
+                            <li style="margin-bottom: 5px;">Clear subject or purpose of communication</li>
+                            <li style="margin-bottom: 5px;">Contact information for response</li>
+                            <li>Appropriate royal salutations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container" id="contact-form">
+                    <div class="form-header">
+                        <h2>Send a Message to the Palace</h2>
+                        <p>Please complete this form for official inquiries, media requests, or general communications.</p>
+                    </div>
+                    
+                    <form id="royalContactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="title">Title / Position</label>
+                                <input type="text" id="title" name="title" placeholder="Organization, Media, etc.">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Contact Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your contact number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="messageType">Message Type *</label>
+                            <select id="messageType" name="messageType" required>
+                                <option value="">Select message type</option>
+                                <option value="official">Official Inquiry</option>
+                                <option value="media">Media Request</option>
+                                <option value="cultural">Cultural Matter</option>
+                                <option value="community">Community Development</option>
+                                <option value="personal">Personal Message</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Enter message subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required placeholder="Please provide details of your inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-crown"></i> Send to Palace
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Connect Section -->
+    <section class="social-connect">
+        <div class="container">
+            <h2>Connect on Social Media</h2>
+            <p>Follow His Imperial Majesty's official social media channels for updates, announcements, and insights into royal activities and cultural leadership.</p>
+            
+            <div class="social-icons">
+                <a href="https://facebook.com/ObiOputa111ofAboh" target="_blank" class="social-icon-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/ObiOputa111ofAboh" target="_blank" class="social-icon-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://threads.net/@ObiOputa111ofAboh" target="_blank" class="social-icon-link" aria-label="Threads">
+                    <i class="fa-brands fa-threads"></i>
+                </a>
+                <a href="https://tiktok.com/@obioputa111ofabohkingdom" target="_blank" class="social-icon-link" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/ObiOputaofAboh" target="_blank" class="social-icon-link" aria-label="X (Twitter)">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://youtube.com/@ObiOputa111ofAboh" target="_blank" class="social-icon-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Spinner -->
+    <div class="form-loading" id="formLoading">
+        <div class="spinner"></div>
+        <p>Delivering your message to the Palace...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content-wrapper">
+            <div class="footer-col footer-branding">
+                <img src="seal.png" alt="Royal Seal" class="footer-seal">
+                <p>Preserving the sacred heritage of the ancient Aboh Kingdom.</p>
+                <span class="royal-motto">"Tradition with Truth. Kingship with Purpose."</span>
+            </div>
+            <div class="footer-col">
+                <h4>Palace Menu</h4>
+                <nav class="footer-nav-list">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#biography">Biography</a>
+                    <a href="index.html#media">Media</a>
+                    <a href="index.html#resources">Resources</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <nav class="footer-nav-list">
+                    <a href="index.html#events">Events</a>
+                    <a href="index.html#gallery">Gallery</a>
+                    <a href="Connect.html">Connect</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Official Social Media</h4>
+                <div class="footer-socials">
+                    <a href="https://facebook.com/ObiOputa111ofAboh" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ObiOputa111ofAboh" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://threads.net/@ObiOputa111ofAboh" target="_blank" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://tiktok.com/@obioputa111ofabohkingdom" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://x.com/ObiOputaofAboh" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://youtube.com/@ObiOputa111ofAboh" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p style="margin-top: 20px; color: #999; font-size: 0.85rem;">
+                    <strong>Email:</strong> drgregoputa111@gmail.com<br>
+                    <strong>Phone:</strong> +234 704 334 4423
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="footerYear"></span> His Imperial Majesty, Dr. Gregory Oputa III. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.body.classList.remove('nav-open');
+                });
+            });
+
+            // Form submission
+            const royalContactForm = document.getElementById('royalContactForm');
+            const formLoading = document.getElementById('formLoading');
+            
+            if (royalContactForm) {
+                royalContactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading spinner
+                    formLoading.style.display = 'flex';
+                    
+                    // Get form data
+                    const formData = {
+                        fullName: document.getElementById('fullName').value,
+                        title: document.getElementById('title').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        messageType: document.getElementById('messageType').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    // Simulate form submission (in a real scenario, this would be an API call)
+                    setTimeout(() => {
+                        // Hide loading spinner
+                        formLoading.style.display = 'none';
+                        
+                        // Show success message
+                        alert('Your message has been delivered to the Royal Palace. You will receive a response within 3-5 business days.');
+                        
+                        // Reset form
+                        royalContactForm.reset();
+                    }, 2000);
+                });
+            }
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('footerYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 90,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

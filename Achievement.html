@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements | His Imperial Majesty Dr. Greg Oputa III</title>
+    <link rel="icon" type="image/png" href="LOGO 2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* --- 1. GLOBAL STYLES & RESET --- */
+        :root {
+            --primary-red: #ef0019; /* Original header red */
+            --royal-gold: #FFD700; /* Original gold */
+            --silver-accent: #C0C0C0; /* Original silver */
+            --light-purple: #e6e6fa; /* Light lavender purple */
+            --medium-purple: #d8bfd8; /* Medium purple (thistle) */
+            --light-purple-bg: #f5f0fa; /* Very light purple background */
+            --dark-text: #333;
+            --light-bg: #ffffff;
+            --dark-bg: #000000;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-purple-bg);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            color: #9370DB; /* Purple headers */
+            margin-bottom: 0.5em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- 2. HEADER & NAVIGATION (ORIGINAL COLORS) --- */
+        .header {
+            background: var(--primary-red);
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 90px; 
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 50px; 
+            position: relative;
+            height: 100%;
+        }
+
+        .logo-box {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .logo-box img {
+            height: 160px; 
+            width: auto;
+            position: absolute;
+            top: -30px; 
+            left: 0;
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .nav-container {
+            margin-left: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 0 25px;
+            height: 35px; 
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:first-child {
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: var(--royal-gold);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+        }
+
+        /* --- 3. ACHIEVEMENTS HERO SECTION --- */
+        .achievements-hero {
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--medium-purple) 100%);
+            padding: 180px 0 100px;
+            color: var(--dark-text);
+            text-align: center;
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(147, 112, 219, 0.1) 0%, transparent 20%);
+        }
+
+        .achievements-hero h1 {
+            color: #9370DB;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
+        }
+
+        /* Hero Buttons */
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .hero-cta {
+            background-color: var(--royal-gold);
+            color: #000;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .hero-cta.secondary {
+            background-color: transparent;
+            color: #9370DB;
+            border: 2px solid #9370DB;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-cta.secondary:hover {
+            background-color: rgba(147, 112, 219, 0.1);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #9370DB;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        .breadcrumb a {
+            color: #9370DB;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- NEW: ROYAL ACHIEVEMENTS INTRO SECTION --- */
+        .royal-intro-section {
+            background-color: var(--light-bg);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .royal-intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .royal-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #9370DB;
+        }
+
+        .royal-subtitle {
+            font-size: 1.5rem;
+            color: #8a2be2;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .royal-tagline {
+            font-size: 1.8rem;
+            color: var(--royal-gold);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .royal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .royal-description strong {
+            color: #9370DB;
+        }
+
+        /* --- 4. CATEGORIZED ACHIEVEMENTS SECTIONS --- */
+        .category-section {
+            padding: 80px 0;
+        }
+
+        .category-section:nth-child(even) {
+            background-color: var(--light-purple-bg);
+        }
+
+        .category-section:nth-child(odd) {
+            background-color: var(--light-bg);
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-header h2 {
+            font-size: 2.2rem;
+            color: #9370DB;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .category-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--royal-gold);
+        }
+
+        .category-header .category-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .achievement-list {
+            display: grid;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #f9f6ff 0%, #f5f0fa 100%);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 5px solid #9370DB;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(147, 112, 219, 0.15);
+        }
+
+        .achievement-item h3 {
+            color: #9370DB;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .achievement-item h3 i {
+            color: var(--royal-gold);
+        }
+
+        .achievement-item p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .achievement-highlights {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievement-highlights li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .achievement-highlights li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--royal-gold);
+            font-weight: bold;
+        }
+
+        .spiritual-note {
+            background: rgba(147, 112, 219, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 3px solid var(--royal-gold);
+        }
+
+        .spiritual-note p {
+            color: #8a2be2;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* --- 5. PHILOSOPHY SECTION --- */
+        .philosophy-section {
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--medium-purple) 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-quote {
+            font-size: 1.8rem;
+            color: #9370DB;
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .philosophy-quote:before,
+        .philosophy-quote:after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--royal-gold);
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .philosophy-quote:before {
+            left: 0;
+            top: -20px;
+        }
+
+        .philosophy-quote:after {
+            right: 0;
+            bottom: -40px;
+        }
+
+        .philosophy-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .principle-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-card h4 {
+            color: #9370DB;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .principle-card p {
+            color: #555;
+        }
+
+        /* --- 6. LEGACY SECTION --- */
+        .legacy-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .legacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .legacy-vision {
+            font-size: 1.3rem;
+            color: #9370DB;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .legacy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pillar-item {
+            background: linear-gradient(135deg, #f5f0fa 0%, #e6e6fa 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid var(--royal-gold);
+        }
+
+        .pillar-item h4 {
+            color: #9370DB;
+            margin-bottom: 15px;
+        }
+
+        .pillar-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- 7. FOOTER (ORIGINAL COLORS) --- */
+        .foundation-footer {
+            background: var(--dark-bg);
+            color: #ffffff;
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo-section {
+            grid-column: 1 / -1;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-image-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: auto;
+        }
+
+        .logo-badge {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background: var(--royal-gold);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .logo-text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .foundation-name {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 5px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .foundation-name:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--royal-gold);
+        }
+
+        .foundation-tag {
+            color: var(--royal-gold);
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .foundation-motto {
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .foundation-description {
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .foundation-description p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .certification-badges {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .cert-badge i {
+            color: var(--royal-gold);
+            font-size: 18px;
+        }
+
+        .cert-badge span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon:hover {
+            background: var(--royal-gold);
+            color: #000;
+            transform: translateY(-3px);
+            border-color: var(--royal-gold);
+        }
+
+        .footer-links h4 {
+            color: var(--royal-gold);
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--royal-gold);
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-info-list i {
+            color: var(--royal-gold);
+            font-size: 18px;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+
+        .contact-info-list span {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .newsletter-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .newsletter-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h4 {
+            color: var(--royal-gold);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .newsletter-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            background: var(--royal-gold);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .copyright-section {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright-content p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+        }
+
+        .legal-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .legal-links a:hover {
+            color: var(--royal-gold);
+        }
+
+        .divider {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+        }
+
+        .registration-info {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .nav-content { 
+                flex-direction: row; 
+                justify-content: space-between;
+                padding: 0 20px; 
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed; 
+                top: 25px;
+                right: 25px;
+                z-index: 3000 !important;
+                background: transparent;
+                border: none;
+                width: 45px;
+                height: 45px;
+            }
+
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: white; 
+                margin: 3.5px 0; 
+                transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            }
+
+            .nav-open .hamburger:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+                background-color: var(--royal-gold) !important;
+            }
+
+            .nav-open .hamburger:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-open .hamburger:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+                background-color: var(--royal-gold) !important;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: 0; width: 70%; height: 100vh;
+                background-color: var(--primary-red);
+                flex-direction: column;
+                padding-top: 100px;
+                transform: translateX(100%);
+                z-index: 2000; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
+                transition: transform 0.4s ease-in-out;
+            }
+            .nav-open .nav-links { transform: translateX(0); }
+            .nav-links a { 
+                height: auto;
+                padding: 15px 30px;
+                font-size: 1.1rem;
+                width: 100%;
+                border-right: none !important;
+                border-bottom: 2px solid var(--royal-gold);
+            }
+            .logo-box img { height: 120px; top: -10px; left: 0; }
+            
+            .achievements-hero {
+                padding: 160px 0 80px;
+            }
+            
+            .achievements-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .royal-title {
+                font-size: 1.8rem;
+            }
+            
+            .royal-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .royal-tagline {
+                font-size: 1.5rem;
+            }
+            
+            .philosophy-quote {
+                font-size: 1.5rem;
+                padding: 0 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .logo-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-text-content {
+                text-align: center;
+            }
+            
+            .foundation-name:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-hero {
+                padding: 140px 0 60px;
+            }
+            
+            .achievements-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .royal-title {
+                font-size: 1.6rem;
+            }
+            
+            .category-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .philosophy-principles,
+            .legacy-pillars {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .copyright-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-item {
+                padding: 20px;
+            }
+            
+            .philosophy-quote {
+                font-size: 1.3rem;
+            }
+            
+            .royal-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text-content {
+                min-width: 100%;
+            }
+            
+            .newsletter-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Original Header & Navigation -->
+    <header class="header">
+        <div class="nav-content">
+            <div class="logo-box">
+                <a href="index.html">
+                    <img src="LOGO 2.png" alt="His Imperial Majesty Dr. Greg Oputa III Logo">
+                </a>
+            </div>
+            
+            <div class="nav-container">
+                <nav class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="index.html#biography">BIOGRAPHY</a>
+                    <a href="foundation.html">FOUNDATION</a>
+                    <a href="resources.html">RESOURCES</a>
+                    <a href="achievements.html" class="active">ACHIEVEMENTS</a>
+                    <a href="index.html#gallery">GALLERY</a>
+                    <a href="connect.html">CONNECT</a>
+                </nav>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Achievements Hero Section -->
+    <section class="achievements-hero">
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <h1>Royal Achievements & Legacy</h1>
+            <p class="hero-subtitle">
+                A chronicle of transformative leadership, community development, and cultural preservation 
+                under the reign of His Imperial Majesty, Dr. Gregory Oputa III.
+            </p>
+            
+            <!-- Hero Buttons -->
+            <div class="hero-btns">
+                <a href="#royal-intro" class="hero-cta">
+                    Explore Achievements &rarr;
+                </a>
+                <a href="#philosophy" class="hero-cta secondary">
+                    Leadership Philosophy &rarr;
+                </a>
+            </div>
+            
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Achievements</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Royal Achievements Intro -->
+    <section class="royal-intro-section" id="royal-intro">
+        <div class="container">
+            <div class="royal-intro-content">
+                <h2 class="royal-title">ROYAL ACHIEVEMENTS</h2>
+                <h3 class="royal-subtitle">His Imperial Majesty, Dr. Gregory Nnamdi Oputa III</h3>
+                <h4 class="royal-subtitle">Obi Oputa III of Aboh Kingdom</h4>
+                <p class="royal-tagline">A Reign Defined by Purpose, Compassion, and Enduring Legacy</p>
+                
+                <div class="royal-description">
+                    <p>The reign of <strong>His Imperial Majesty, Dr. Gregory Nnamdi Oputa III</strong>, Obi Oputa III of Aboh Kingdom, represents a defining chapter in the long and noble history of the Aboh monarchy. Rooted in ancient lineage yet guided by contemporary wisdom, his kingship has redefined what it means to lead in a modern African kingdom.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ascension and Reorientation -->
+    <section class="category-section" id="ascension">
+        <div class="container">
+            <div class="category-header">
+                <h2>Ascension and Reorientation of the Throne</h2>
+                <p class="category-subtitle">Foundation of Moral and Spiritual Leadership</p>
+            </div>
+            
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3><i class="fas fa-crown"></i> Spiritual Foundation</h3>
+                    <p>Upon his coronation, His Imperial Majesty publicly surrendered the kingship to God, setting a moral and spiritual foundation for his reign. This singular act repositioned the throne as a platform for service, accountability, and responsible leadership.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Cultural heritage preserved without idolatry</li>
+                        <li>Tradition respected while embracing moral clarity</li>
+                        <li>Kingship exercised as responsibility, not domination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Impact and Humanitarian Leadership -->
+    <section class="category-section" id="social-impact">
+        <div class="container">
+            <div class="category-header">
+                <h2>Social Impact & Humanitarian Leadership</h2>
+                <p class="category-subtitle">Compassion in Action Across the Kingdom</p>
+            </div>
+            
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3><i class="fas fa-hands-helping"></i> Direct Welfare Intervention</h3>
+                    <p>His Imperial Majesty is widely recognized for personally funding and administering community welfare initiatives without intermediaries.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Compassionate reach extends to widows and widowers</li>
+                        <li>Support for orphans and vulnerable children</li>
+                        <li>Care for elderly citizens and struggling families</li>
+                        <li>Virtually every household in Aboh Kingdom has been touched directly or indirectly by his benevolence</li>
+                    </ul>
+                </div>
+                
+                <div class="achievement-item">
+                    <h3><i class="fas fa-graduation-cap"></i> Education as a Legacy Pillar</h3>
+                    <p>Education stands at the heart of His Majesty's developmental vision, designed to dismantle generational poverty and restore dignity through knowledge.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Established fully free educational institutions</li>
+                        <li>Provided free tuition, uniforms, textbooks, and learning materials</li>
+                        <li>Long-term plans include expansion into secondary and tertiary education</li>
+                        <li>Ensuring no child is denied learning due to financial hardship</li>
+                    </ul>
+                </div>
+                
+                <div class="achievement-item">
+                    <h3><i class="fas fa-heartbeat"></i> Healthcare and Community Well-Being</h3>
+                    <p>Championed accessible healthcare with a clear vision: a kingdom where no life is lost due to inability to pay for care.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Medical outreaches and emergency medical support</li>
+                        <li>Direct funding for treatment of indigent citizens</li>
+                        <li>Practical steps toward universal healthcare access</li>
+                    </ul>
+                </div>
+                
+                <div class="achievement-item">
+                    <h3><i class="fas fa-umbrella"></i> Crisis Leadership and Community Resilience</h3>
+                    <p>Following the devastating floods of 2017, His Majesty emerged as a pillar of strength and compassion.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Mobilized personal resources for flood relief</li>
+                        <li>Restored livelihoods and rebuilt hope among displaced families</li>
+                        <li>Established reputation as a leader who stands with his people in darkest moments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Empowerment -->
+    <section class="category-section" id="economic">
+        <div class="container">
+            <div class="category-header">
+                <h2>Economic Empowerment & Development</h2>
+                <p class="category-subtitle">Transforming Personal Wealth into Community Prosperity</p>
+            </div>
+            
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3><i class="fas fa-chart-line"></i> Business Leadership for Community Development</h3>
+                    <p>An accomplished international businessman, His Imperial Majesty channels personal wealth into community development rather than public levies.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Educational sponsorships and business support</li>
+                        <li>Emergency financial assistance and housing interventions</li>
+                        <li>Teaching that poverty is not merely a condition, but a limitation on destiny</li>
+                        <li>Leadership actively confronting economic limitations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spiritual and Moral Leadership -->
+    <section class="category-section" id="spiritual">
+        <div class="container">
+            <div class="category-header">
+                <h2>Spiritual & Moral Leadership</h2>
+                <p class="category-subtitle">Integrating Faith with Traditional Leadership</p>
+            </div>
+            
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3><i class="fas fa-pray"></i> Faith-Driven Leadership</h3>
+                    <p>Distinctive among traditional rulers, His Imperial Majesty openly professes his Christian faith and leads by example.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Integrates faith with leadership without coercion</li>
+                        <li>Inspires moral renewal and spiritual awakening</li>
+                        <li>Transforms lives within and beyond the kingdom</li>
+                    </ul>
+                    
+                    <div class="spiritual-note">
+                        <p>Soul-winning and moral restoration remain central to his divine assignment as king.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Philosophy -->
+    <section class="philosophy-section" id="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <h2>Leadership Philosophy</h2>
+                <p class="philosophy-quote">"The leadership of His Imperial Majesty is anchored on listening before decision-making, humility and accountability, forgiveness and emotional intelligence, resilience and focus."</p>
+                
+                <div class="philosophy-principles">
+                    <div class="principle-card">
+                        <h4>Humility & Accountability</h4>
+                        <p>Rejects sycophancy and consistently redirects praise to God, fostering a culture of humility and service.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Compassionate Leadership</h4>
+                        <p>Listens before decision-making, prioritizes forgiveness and emotional intelligence.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Resilient Focus</h4>
+                        <p>Maintains unwavering commitment to the kingdom's development despite challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Influence -->
+    <section class="category-section" id="global">
+        <div class="container">
+            <div class="category-header">
+                <h2>Global Influence & Advocacy for Peace</h2>
+                <p class="category-subtitle">Ambassador of Peace Across Continents</p>
+            </div>
+            
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h3><i class="fas fa-globe-africa"></i> International Leadership</h3>
+                    <p>With business, philanthropic, and spiritual influence spanning Nigeria, Europe, and the United States, His Imperial Majesty stands as a global ambassador of peace.</p>
+                    
+                    <ul class="achievement-highlights">
+                        <li>Consistent message to the world: "Peace—because where there is peace, there is life, love, and progress."</li>
+                        <li>Bridges traditional African leadership with global best practices</li>
+                        <li>Represents Aboh Kingdom on international platforms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Living Legacy -->
+    <section class="legacy-section" id="legacy">
+        <div class="container">
+            <div class="legacy-content">
+                <h2>A Living Legacy</h2>
+                <p class="legacy-vision">
+                    Inspired by his forebears and driven by a vision for future generations, His Imperial Majesty is committed to building institutions—not monuments. His reign is guided by the desire to leave behind educated generations, healthy communities, spiritually grounded citizens, and a kingdom positioned for lasting prosperity.
+                </p>
+                
+                <div class="legacy-pillars">
+                    <div class="pillar-item">
+                        <h4>Educated Generations</h4>
+                        <p>Building educational institutions that will serve for centuries.</p>
+                    </div>
+                    
+                    <div class="pillar-item">
+                        <h4>Healthy Communities</h4>
+                        <p>Establishing healthcare systems for all citizens.</p>
+                    </div>
+                    
+                    <div class="pillar-item">
+                        <h4>Spiritual Foundation</h4>
+                        <p>Grounding leadership in moral and spiritual principles.</p>
+                    </div>
+                    
+                    <div class="pillar-item">
+                        <h4>Lasting Prosperity</h4>
+                        <p>Creating economic systems that endure beyond generations.</p>
+                    </div>
+                </div>
+                
+                <div class="legacy-summary" style="margin-top: 50px; padding: 30px; background: rgba(147, 112, 219, 0.1); border-radius: 12px;">
+                    <h3 style="color: #9370DB; margin-bottom: 20px;">Summary</h3>
+                    <p style="color: #555; font-size: 1.1rem; line-height: 1.8;">
+                        The achievements of <strong>His Imperial Majesty, Dr. Gregory Nnamdi Oputa III</strong>, reflect a reign defined not by the weight of the crown, but by the depth of impact. Through faith-driven leadership, compassion in action, and visionary development, he continues to shape a future worthy of the Aboh legacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="foundation-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <div class="logo-wrapper">
+                        <div class="logo-image-container">
+                            <img src="LOGO 2.png" alt="Royal Seal" class="footer-logo">
+                            <div class="logo-badge">
+                                <span class="badge-text">Since 1483</span>
+                            </div>
+                        </div>
+                        <div class="logo-text-content">
+                            <h3 class="foundation-name">HIS IMPERIAL MAJESTY</h3>
+                            <h4 class="foundation-tag">DR. GREGORY NNAMDI OPUTA III</h4>
+                            <p class="foundation-motto">Tradition with Truth. Kingship with Purpose.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="foundation-description">
+                        <p>Preserving the sacred heritage of the ancient Aboh Kingdom while guiding its future with principled leadership, cultural preservation, and community development.</p>
+                    </div>
+                    
+                    <div class="certification-badges">
+                        <div class="cert-badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Eze Aboh (Since 1483)</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Paramount Ruler</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://facebook.com/ObiOputa111ofAboh" target="_blank" aria-label="Facebook" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/ObiOputa111ofAboh" target="_blank" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/ObiOputaofAboh" target="_blank" aria-label="X (Twitter)" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://threads.net/@ObiOputa111ofAboh" target="_blank" aria-label="Threads" class="social-icon">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+                        <a href="https://tiktok.com/@obioputa111ofabohkingdom" target="_blank" aria-label="TikTok" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://youtube.com/@ObiOputa111ofAboh" target="_blank" aria-label="YouTube" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Achievements Categories</h4>
+                    <ul>
+                        <li><a href="#ascension">Ascension & Reorientation</a></li>
+                        <li><a href="#social-impact">Social Impact</a></li>
+                        <li><a href="#economic">Economic Empowerment</a></li>
+                        <li><a href="#spiritual">Spiritual Leadership</a></li>
+                        <li><a href="#global">Global Influence</a></li>
+                        <li><a href="#legacy">Living Legacy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Access</h4>
+                    <ul>
+                        <li><a href="index.html#home">Royal Home</a></li>
+                        <li><a href="index.html#biography">Biography</a></li>
+                        <li><a href="foundation.html">The Foundation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="index.html#media">Video Messages</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact Information</h4>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>The Royal Palace of Aboh Kingdom<br>Aboh, Delta State, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>royalsecretariat@abohkingdom.org</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 704 334 4423</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Newsletter Subscription -->
+            <div class="newsletter-section" id="newsletter">
+                <div class="newsletter-content">
+                    <h4>Subscribe to Royal Updates</h4>
+                    <p>Receive official communications, royal addresses, and palace announcements directly to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="copyright-section">
+                <div class="copyright-content">
+                    <p>&copy; <span id="currentYear"></span> His Imperial Majesty, Dr. Gregory Nnamdi Oputa III. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <span class="divider">|</span>
+                        <a href="#terms">Terms of Access</a>
+                        <span class="divider">|</span>
+                        <a href="#disclaimer">Official Disclaimer</a>
+                    </div>
+                </div>
+                <div class="registration-info">
+                    <p>Throne of Aboh Kingdom (Est. 1483) | Royal Secretariat | Paramount Ruler</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+
+            // Set current year in copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Newsletter form submission
+            document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    alert(`Thank you for subscribing to Royal Updates! A confirmation has been sent to ${email}.`);
+                    this.reset();
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.body.classList.remove('nav-open');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') return;
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Set active state for current page in navigation
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'achievements.html') {
+                const achievementsLink = document.querySelector('.nav-links a[href="achievements.html"]');
+                if (achievementsLink) {
+                    achievementsLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
